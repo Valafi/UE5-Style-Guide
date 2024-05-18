@@ -1,6 +1,6 @@
 # Alex's UE5 Style Guide
 
-This is a draft. Please feel free to commit any form of contribution in the form of a pull request, even if they are just ideas that still need to be solved but at least move the needle forward.
+This is a fork of Michael Allar's excellent [UE4/5 Style Guide](https://github.com/Allar/ue5-style-guide). Since Mr. Allar's activity has been focused around a VR project for the past two years, I decided I would make this fork to clean up, update, and personalize the repo for myself. While you're here, I hope you find value in my fork. :)
 
 ## Linter and Style Guide Documentation
 
