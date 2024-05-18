@@ -141,43 +141,43 @@ For example, if you want to send someone to the first principle of this style gu
 
 <a name="terms-level-map"></a>
 
-##### Levels/Maps
+### Levels/Maps
 
 The word 'map' generally refers to what the average person calls a 'level' and may be used interchangeably. See this term's history [here](https://en.wikipedia.org/wiki/Level_(video_gaming)).
 
 <a name="terms-identifiers"></a>
 
-##### Identifiers
+### Identifiers
 
 An `Identifier` is anything that resembles or serves as a "name". For example, the name of an asset, or the name of a material later, or a blueprint property, a variable, or a folder name, or for a data table row name, etc...
 
 <a name="terms-cases"></a>
 
-##### Cases
+### Cases
 
 There are a few different ways you can `CaseWordsWhenNaming`. Here are some common casing types:
 
-> ###### PascalCase
+> #### PascalCase
 >
 > Capitalize every word and remove all spaces, e.g. `DesertEagle`, `StyleGuide`, `ASeriesOfWords`.
 >
-> ###### camelCase
+> #### camelCase
 >
 > The first letter is always lowercase but every following word starts with uppercase, e.g. `desertEagle`, `styleGuide`, `aSeriesOfWords`.
 >
-> ###### Snake_case
+> #### Snake_case
 >
 > Words can arbitrarily start upper or lowercase but words are separated by an underscore, e.g. `desert_Eagle`, `Style_Guide`, `a_Series_of_Words`.
 
 <a name="terms-var-prop"></a>
 
-##### Variables / Properties
+### Variables / Properties
 
 The words 'variable' and 'property' in most contexts are interchangable. If they are both used together in the same context however:
 
 <a name="terms-property"></a>
 
-###### Property
+#### Property
 
 Usually refers to a variable defined in a class. For example, if `BP_Barrel` had a variable `bExploded`, `bExploded` may be referred to as a property of `BP_Barrel`.
 
@@ -185,7 +185,7 @@ When in the context of a class, it is often used to imply accessing previously d
 
 <a name="terms-variable"></a>
 
-###### Variable
+#### Variable
 
 Usually refers to a variable defined as a function argument or a local variable inside a function.
 
