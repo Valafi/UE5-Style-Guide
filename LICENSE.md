@@ -1,6 +1,7 @@
 The MIT License
 
 Copyright (c) 2016-2024 Gamemakin LLC. https://gamemak.in
+
 Copyright (c) 2024 Alexander Pomasl
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
