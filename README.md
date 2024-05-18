@@ -931,7 +931,7 @@ All variable names must not be redundant with their context as all variable refe
 
 Consider a Blueprint called `BP_PlayerCharacter`.
 
-**Bad**
+Bad examples:
 
 * `PlayerScore`
 * `PlayerKills`
@@ -942,7 +942,7 @@ Consider a Blueprint called `BP_PlayerCharacter`.
 
 All of these variables are named redundantly. It is implied that the variable is representative of the `BP_PlayerCharacter` it belongs to because it is `BP_PlayerCharacter` that is defining these variables.
 
-**Good**
+Good examples:
 
 * `Score`
 * `Kills`
