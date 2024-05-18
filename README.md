@@ -813,6 +813,7 @@ Any testing or debug materials should be within `MaterialLibrary/Debug`. This al
 There simply shouldn't be any empty folders. They clutter the content browser.
 
 If you find that the content browser has an empty folder you can't delete, you should perform the following:
+
 1. Be sure you're using source control.
 1. Immediately run Fix Up Redirectors on your project.
 1. Navigate to the folder on-disk and delete the assets inside.
