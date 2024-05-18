@@ -770,7 +770,6 @@ If you find that the content browser has an empty folder you can't delete, you s
 
 **[⬆ Back to Top](#table-of-contents)**
 
-
 <a name="3"></a>
 <a name="bp"></a>
 ## 3. Blueprints
@@ -922,7 +921,6 @@ If a class does not own the value a complex variable represents, you should use 
 
 Example: If a `BP_Turret` has the ability to target a `BP_PlayerCharacter`, it should store its target as `TargetPlayer` as when in the context of `BP_Turret` it should be clear that it is a reference to another complex variable type that it does not own.
 
-
 <a name="3.2.1.8"></a>
 <a name="bp-vars-naming-arrays"></a>
 ##### 3.2.1.8 Arrays
@@ -930,7 +928,6 @@ Example: If a `BP_Turret` has the ability to target a `BP_PlayerCharacter`, it s
 Arrays follow the same naming rules as above, but should be named as a plural noun.
 
 Example: Use `Targets`, `Hats`, and `EnemyPlayers`, **not** `TargetList`, `HatArray`, `EnemyPlayerArray`.
-
 
 <a name="3.2.2"></a>
 <a name="bp-vars-editable"></a>
@@ -1152,7 +1149,6 @@ Bad examples:
 * `AllNotifyDeath` - Use `Multicast`, never `All`.
 * `ClientWeapon` - No verb, ambiguous.
 
-
 <a name="3.3.2"></a>
 <a name="bp-funcs-return"></a>
 #### 3.3.2 All Functions Must Have Return Nodes
@@ -1252,7 +1248,6 @@ All nodes in all blueprint graphs must have a purpose. You should not leave dang
 
 **[⬆ Back to Top](#table-of-contents)**
 
-
 <a name="4"></a>
 <a name="Static Meshes"></a>
 <a name="s"></a>
@@ -1306,7 +1301,6 @@ This is a subjective check on a per-project basis, however all assets should be 
 
 **[⬆ Back to Top](#table-of-contents)**
 
-
 <a name="5"></a>
 <a name="Niagara"></a>
 <a name="ng"></a>
@@ -1322,9 +1316,7 @@ As mentioned in [00.1 Forbidden Identifiers](#00), spaces and all white space ch
 
 (Original Contribution by [@dunenkoff](https://github.com/Allar/ue5-style-guide/issues/58))
 
-
 **[⬆ Back to Top](#table-of-contents)**
-
 
 <a name="6"></a>
 <a name="Levels"></a>
@@ -1385,7 +1377,6 @@ For example, `InteractionComponent_Overview_Demo`, `ExplosionKit_Demo`.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-
 <a name="7"></a>
 <a name="textures"></a>
 ## 7. Textures
@@ -1422,7 +1413,6 @@ Every texture has a Texture Group property used for LODing, and this should be s
 
 **[⬆ Back to Top](#table-of-contents)**
 
-
 ## Major Contributors
 
 * [Michael Allar](http://allarsblog.com): [GitHub](https://github.com/Allar), [Twitter](https://twitter.com/michaelallar)
@@ -1431,7 +1421,6 @@ Every texture has a Texture Group property used for LODing, and this should be s
 * [akenatsu](https://github.com/akenatsu)
 
 **[⬆ Back to Top](#table-of-contents)**
-
 
 ## Amendments
 
