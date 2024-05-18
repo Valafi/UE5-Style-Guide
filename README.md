@@ -17,12 +17,6 @@ Gamemakin LLC has a public Discord channel at <http://discord.gamemak.in> with a
     * [Identifiers](#terms-identifiers)
     * [Cases](#terms-cases)
     * [Variables / Properties](#terms-var-prop)
-1. [Principles](#0)
-    1. [If your UE5 project already has a style guide, you should follow it](#0.1)
-    1. [All structure, assets, and code in any Unreal Engine 5 project should look like a single person created it, no matter how many people contributed](#0.2)
-    1. [Friends do not let friends have bad style](#0.3)
-    1. [A team without a style guide is no team of mine](#0.4)
-    1. [Don't Break The Law](#0.5)
 1. [Globally Enforced Opinions](#00)
     * [Forbidden Characters](#00.1)
       * [Identifiers](#identifiers)
@@ -179,59 +173,6 @@ When in the context of a class, it is often used to imply accessing previously d
 Usually refers to a variable defined as a function argument or a local variable inside a function.
 
 When in the context of a class, it is often used to convey discussion about its definition and what it will hold.
-
-<a name="0"></a>
-
-## 0. Principles
-
-These principles have been adapted from [idomatic.js style guide](https://github.com/rwaldron/idiomatic.js/).
-
-<a name="0.1"></a>
-
-### 0.1 If your UE5 project already has a style guide, you should follow it
-
-If you are working on a project or with a team that has a pre-existing style guide, it should be respected.  Any inconsistency between an existing style guide and this guide should defer to the existing.
-
-Style guides should be living documents. You should propose style guide changes to an existing style guide as well as this guide if you feel the change benefits all usages.
-
-> #### "Arguments over style are pointless. There should be a style guide, and you should follow it."
->
-> [*Rebecca Murphey*](https://rmurphey.com)
-
-<a name="0.2"></a>
-
-### 0.2 All structure, assets, and code in any Unreal Engine 5 project should look like a single person created it, no matter how many people contributed
-
-Moving from one project to another should not cause a re-learning of style and structure. Conforming to a style guide removes unneeded guesswork and ambiguities.
-
-It also allows for more productive creation and maintenance as one does not need to think about style. Simply follow the instructions. This style guide is written with best practices in mind, meaning that by following this style guide you will also minimize hard to track issues.
-
-<a name="0.3"></a>
-
-### 0.3 Friends do not let friends have bad style
-
-If you see someone working either against a style guide or no style guide, try to correct them.
-
-When working within a team or discussing within a community such as [Unreal Slackers](http://join.unrealslackers.org/), it is far easier to help and to ask for help when people are consistent. Nobody likes to help untangle someone's Blueprint spaghetti or deal with assets that have names they can't understand.
-
-If you are helping someone whose work conforms to a different but consistent and sane style guide, you should be able to adapt to it. If they do not conform to any style guide, please direct them here.
-
-<a name="0.4"></a>
-
-### 0.4 A team without a style guide is no team of mine
-
-When joining an Unreal Engine 5 team, one of your first questions should be "Do you have a style guide?". If the answer is no, you should be skeptical about their ability to work as a team.
-
-<a name="0.5"></a>
-
-### 0.5 Don't Break The Law
-
-Gamemakin LLC is not a lawyer, but please don't introduce illegal actions and behavior to a project, including but not limited to:
-
-* Don't distribute content you don't have the rights to distribute
-* Don't infringe on someone else's copyrighted or trademark material
-* Don't steal content
-* Follow licensing restrictions on content, e.g. attribute when attributions are needed
 
 <a name="00"></a>
 
