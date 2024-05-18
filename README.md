@@ -141,13 +141,13 @@ For example, if you want to send someone to the first principle of this style gu
 
 <a name="terms-level-map"></a>
 
-### Levels/Maps
+### Level/Map
 
 The word 'map' generally refers to what the average person calls a 'level' and may be used interchangeably. See this term's history [here](https://en.wikipedia.org/wiki/Level_(video_gaming)).
 
 <a name="terms-identifiers"></a>
 
-### Identifiers
+### Identifier
 
 An `Identifier` is anything that resembles or serves as a "name". For example, the name of an asset, or the name of a material later, or a blueprint property, a variable, or a folder name, or for a data table row name, etc...
 
