@@ -962,6 +962,8 @@ Strings and vectors are considered atomic in terms of style when working with Bl
 
 > While vectors consist of three floats, vectors are often able to be manipulated as a whole, same with rotators.
 
+Also:
+
 > Do *not* consider Text variables as atomic, they are secretly hiding localization functionality. The atomic type of a string of characters is `String`, not `Text`.
 
 Atomic variables should not have their type name in their name.
