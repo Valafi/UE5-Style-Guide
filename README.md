@@ -1430,12 +1430,6 @@ Every texture has a Texture Group property used for LODing, and this should be s
 * [billymcguffin](https://github.com/billymcguffin)
 * [akenatsu](https://github.com/akenatsu)
 
-## License
-
-Copyright (c) 2016 Gamemakin LLC
-
-See [LICENSE](/LICENSE)
-
 **[⬆ Back to Top](#table-of-contents)**
 
 
