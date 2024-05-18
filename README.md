@@ -1399,7 +1399,7 @@ Every texture has a Texture Group property used for LODing, and this should be s
 
 ## Major Contributors
 
-* [Michael Allar](http://allarsblog.com): [GitHub](https://github.com/Allar), [Twitter](https://twitter.com/michaelallar)
+* [Michael Allar](http://allarsblog.com): [GitHub](https://github.com/Allar)
 * [CosmoMyzrailGorynych](https://github.com/CosmoMyzrailGorynych)
 * [billymcguffin](https://github.com/billymcguffin)
 * [akenatsu](https://github.com/akenatsu)
