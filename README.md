@@ -14,12 +14,12 @@ More technical documentation regarding Linter and the Style Guide can be found a
 
 ## Discuss This Style Guide
 
-Gamemakin LLC has a public Discord channel at http://discord.gamemak.in with a #linter channel if you'd like to discuss all things style guide and Linter plugin.
+Gamemakin LLC has a public Discord channel at <http://discord.gamemak.in> with a #linter channel if you'd like to discuss all things style guide and Linter plugin.
 
 ## Linking To This Document
 
-Every section of this style guide is numbered for both easy reference and easy linking. You can link to any section directly by simply append a hash tag and the section number to the end of http://ue4.style
-For example, if you want to send someone to the first principle of this style guide you would append `#0.1`, resulting in http://ue4.style#0.1.
+Every section of this style guide is numbered for both easy reference and easy linking. You can link to any section directly by simply append a hash tag and the section number to the end of <http://ue4.style>
+For example, if you want to send someone to the first principle of this style guide you would append `#0.1`, resulting in <http://ue4.style#0.1>.
 
 ## Table of contents
 - [Important Terminology](#important-terminology)
