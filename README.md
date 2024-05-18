@@ -1,12 +1,6 @@
-# [Gamemakin](https://gamemak.in) UE5 Style Guide Version 2() {
-
-# THIS IS A DRAFT
+# Alex's UE5 Style Guide
 
 This is a draft. Please feel free to commit any form of contribution in the form of a pull request, even if they are just ideas that still need to be solved but at least move the needle forward.
-
-*A mostly reasonable approach to Unreal Engine 5*
-
-Heavily inspired by the [Airbnb Javascript Style Guide](https://github.com/airbnb/javascript).
 
 ## Linter and Style Guide Documentation
 
@@ -1425,5 +1419,3 @@ Every texture has a Texture Group property used for LODing, and this should be s
 ## Amendments
 
 We encourage you to fork this guide and change the rules to fit your team's style guide. Below, you may list some amendments to the style guide. This allows you to periodically update your style guide without having to deal with merge conflicts.
-
-# };
