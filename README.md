@@ -84,7 +84,7 @@ For example, if you want to send someone to the first principle of this style gu
         * [3.2.1.4.2 Complex States](#3.2.1.4.2)
       * [3.2.1.5 Considered Context](#bp-vars-naming-context)
         * [3.2.1.5e Examples](#3.2.1.5e)
-      * [3.2.1.6 Do _Not_ Include Atomic Type Names](#bp-vars-naming-atomic)
+      * [3.2.1.6 Do *Not* Include Atomic Type Names](#bp-vars-naming-atomic)
       * [3.2.1.7 Do Include Non-Atomic Type Names](#bp-vars-naming-complex)
       * [3.2.1.8 Arrays](#bp-vars-naming-arrays)
     * [3.2.2 Editable Variables](#bp-vars-editable)
@@ -207,7 +207,7 @@ Style guides should be living documents. You should propose style guide changes 
 
 > #### "Arguments over style are pointless. There should be a style guide, and you should follow it."
 >
-> [_Rebecca Murphey_](https://rmurphey.com)
+> [*Rebecca Murphey*](https://rmurphey.com)
 
 <a name="0.2"></a>
 
@@ -288,7 +288,7 @@ Most things are prefixed with prefixes being generally an acronym of the asset t
 
 ### 1.1 Base Asset Name - `Prefix_BaseAssetName_Variant_Suffix`
 
-All assets should have a _Base Asset Name_. A Base Asset Name represents a logical grouping of related assets. Any asset that is part of this logical group should follow the standard of  `Prefix_BaseAssetName_Variant_Suffix`.
+All assets should have a *Base Asset Name*. A Base Asset Name represents a logical grouping of related assets. Any asset that is part of this logical group should follow the standard of  `Prefix_BaseAssetName_Variant_Suffix`.
 
 Keeping the pattern `Prefix_BaseAssetName_Variant_Suffix` and in mind and using common sense is generally enough to warrant good asset names. Here are some detailed rules regarding each element.
 
@@ -663,7 +663,7 @@ Using other characters outside `a-z`, `A-Z`, and `0-9` such as `@`, `-`, `_`, `,
 
 ### 2.2 Use A Top Level Folder For Project Specific Assets
 
-All of a project's assets should exist in a folder named after the project. For example, if your project is named 'Generic Shooter', _all_ of it's content should exist in `Content/GenericShooter`.
+All of a project's assets should exist in a folder named after the project. For example, if your project is named 'Generic Shooter', *all* of it's content should exist in `Content/GenericShooter`.
 
 > The `Developers` folder is not for assets that your project relies on and therefore is not project specific. See [Developer Folders](#2.3) for details about this.
 
@@ -687,7 +687,7 @@ These dependencies are what can easily get you into trouble. If two project's as
 
 This is also the primary reason why Epic's Marketplace staff enforces the same policy for submitted assets.
 
-After a migration, safe merging of assets can be done using the 'Replace References' tool in the content browser with the added clarity of assets not belonging to a project's top level folder are clearly pending a merge. Once assets are merged and fully migrated, there shouldn't be another top level folder in your Content tree. This method is _100%_ guaranteed to make any migrations that occur completely safe.
+After a migration, safe merging of assets can be done using the 'Replace References' tool in the content browser with the added clarity of assets not belonging to a project's top level folder are clearly pending a merge. Once assets are merged and fully migrated, there shouldn't be another top level folder in your Content tree. This method is *100%* guaranteed to make any migrations that occur completely safe.
 
 <a name="2.2.2e1"></a>
 
@@ -701,7 +701,7 @@ The issue comes when, for example, an artist for one project created a nice gene
 
 This issue can be hard to predict and hard to account for. The person migrating the static meshes may not be the same person who is familiar with the development of both project's master material, and they may not be even aware that the static meshes in question rely on material instances which then rely on the master material. The Migrate tool requires the entire chain of dependencies to work however, and so it will be forced to grab `Content/MaterialLibrary/M_Master` when it copies these assets to the other project and it will overwrite the existing asset.
 
-It is at this point where if the master materials for both projects are incompatible in _any way_, you risk breaking possibly the entire material library for a project as well as any other dependencies that may have already been migrated, simply because assets were not stored in a top level folder. The simple migration of static meshes now becomes a very ugly task.
+It is at this point where if the master materials for both projects are incompatible in *any way*, you risk breaking possibly the entire material library for a project as well as any other dependencies that may have already been migrated, simply because assets were not stored in a top level folder. The simple migration of static meshes now becomes a very ugly task.
 
 <a name="2.2.3"></a>
 
@@ -954,7 +954,7 @@ All of these variables are named redundantly. It is implied that the variable is
 <a name="3.2.1.6"></a>
 <a name="bp-vars-naming-atomic"></a>
 
-##### 3.2.1.6 Do _Not_ Include Atomic Type Names
+##### 3.2.1.6 Do *Not* Include Atomic Type Names
 
 Atomic or primitive variables are variables that represent data in their simplest form, such as booleans, integers, floats, and enumerations.
 
@@ -962,13 +962,13 @@ Strings and vectors are considered atomic in terms of style when working with Bl
 
 > While vectors consist of three floats, vectors are often able to be manipulated as a whole, same with rotators.
 
-> Do _not_ consider Text variables as atomic, they are secretly hiding localization functionality. The atomic type of a string of characters is `String`, not `Text`.
+> Do *not* consider Text variables as atomic, they are secretly hiding localization functionality. The atomic type of a string of characters is `String`, not `Text`.
 
 Atomic variables should not have their type name in their name.
 
 Example: Use `Score`, `Kills`, and `Description` **not** `ScoreFloat`, `FloatKills`, `DescriptionString`.
 
-The only exception to this rule is when a variable represents 'a number of' something to be counted _and_ when using a name without a variable type is not easy to read.
+The only exception to this rule is when a variable represents 'a number of' something to be counted *and* when using a name without a variable type is not easy to read.
 
 Example: A fence generator needs to generate X number of posts. Store X in `NumPosts` or `PostsCount` instead of `Posts` as `Posts` may potentially read as an Array of a variable type named `Post`.
 
@@ -1007,7 +1007,7 @@ Example: Use `Targets`, `Hats`, and `EnemyPlayers`, **not** `TargetList`, `HatAr
 
 All variables that are safe to change the value of in order to configure behavior of a blueprint should be marked as `Editable`.
 
-Conversely, all variables that are not safe to change or should not be exposed to designers should _not_ be marked as editable, unless for engineering reasons the variable must be marked as `Expose On Spawn`.
+Conversely, all variables that are not safe to change or should not be exposed to designers should *not* be marked as editable, unless for engineering reasons the variable must be marked as `Expose On Spawn`.
 
 Do not arbitrarily mark variables as `Editable`.
 
@@ -1023,7 +1023,7 @@ All `Editable` variables, including those marked editable just so they can be ma
 
 ##### 3.2.2.2 Slider And Value Ranges
 
-All `Editable` variables should make use of slider and value ranges if there is ever a value that a variable should _not_ be set to.
+All `Editable` variables should make use of slider and value ranges if there is ever a value that a variable should *not* be set to.
 
 Example: A blueprint that generates fence posts might have an editable variable named `PostsCount` and a value of -1 would not make any sense. Use the range fields to mark 0 as a minimum.
 
