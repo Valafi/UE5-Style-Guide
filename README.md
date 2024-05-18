@@ -2,13 +2,9 @@
 
 This is a fork of Michael Allar's excellent [UE4/5 Style Guide](https://github.com/Allar/ue5-style-guide). Since Mr. Allar's activity has been focused around a VR project for the past two years, I decided I would make this fork to clean up, update, and personalize the repo for myself. While you're here, I hope you find value in my fork. :)
 
-## Linter and Style Guide Documentation
+## Linter Documentation and Discussion
 
-More technical documentation regarding Linter and the Style Guide can be found at our [ReadTheDocs](https://ue4-style-guide.readthedocs.io/en/latest/) page.
-
-## Discuss This Style Guide
-
-Gamemakin LLC has a public Discord channel at <http://discord.gamemak.in> with a #linter channel if you'd like to discuss all things style guide and Linter plugin.
+Information regarding Mr. Allar's Linter can be found at his [ReadTheDocs](https://ue4-style-guide.readthedocs.io/en/latest/) page. His company, Gamemakin LLC, also has a public Discord channel at <http://discord.gamemak.in> with a `#linter` channel.
 
 ## Table of Contents
 
