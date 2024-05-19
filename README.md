@@ -1,10 +1,10 @@
 # Alex's UE5 Style Guide
 
-This is a fork of Michael Allar's excellent [UE4/5 Style Guide](https://github.com/Allar/ue5-style-guide). Since Mr. Allar's activity has been focused around a VR project for the past two years, I decided I would make this fork to clean up, update, and personalize the repo for myself. While you're here, I hope you find value in my fork. :)
+This is a fork of Michael Allar's excellent [UE4/5 Style Guide](https://github.com/Allar/ue5-style-guide). Since Mr. Allar's activity has been focused on a VR project for the past two years, I decided I would make this fork to clean up, update, and personalize the repo for myself. While you're here, I hope you find value in my fork. :)
 
 ## Linter Documentation and Discussion
 
-Information regarding Mr. Allar's Linter can be found at his [ReadTheDocs](https://ue4-style-guide.readthedocs.io/en/latest/) page. His company, Gamemakin LLC, also has a public Discord channel at <http://discord.gamemak.in> with a `#linter` channel.
+Information regarding Mr. Allar's Linter can be found on his [ReadTheDocs](https://ue4-style-guide.readthedocs.io/en/latest/) page. His company, Gamemakin LLC, also has a public Discord server (<http://discord.gamemak.in>) with a `#linter` channel.
 
 ## Table of Contents
 
@@ -90,25 +90,25 @@ Any `Identifier` should strive to only have the following characters when possib
 * 1234567890
 * _ (sparingly)
 
-The reasoning for this is this will ensure the greatest compatibility of all data across all platforms across all tools, and help prevent downtime due to potentially bad character handling for identifiers in code you don't control.
+The reasoning for this is to ensure the greatest compatibility of all data across all platforms across all tools, and to help prevent downtime due to potentially bad character handling for identifiers in code you don't control.
 
 ## 2. Asset Naming Conventions <a name="asset-naming"></a>
 
 Naming conventions should be treated as law. A project that conforms to a naming convention is able to have its assets managed, searched, parsed, and maintained with incredible ease.
 
-Most things are prefixed with prefixes being generally an acronym of the asset type followed by an underscore.
+Most assets are generally prefixed with an acronym of the asset type followed by an underscore.
 
 ### Base Asset Name - `Prefix_BaseAssetName_Variant_Suffix` <a name="asset-naming--base"></a>
 
 All assets should have a *Base Asset Name*. A Base Asset Name represents a logical grouping of related assets. Any asset that is part of this logical group should follow the standard of  `Prefix_BaseAssetName_Variant_Suffix`.
 
-Keeping the pattern `Prefix_BaseAssetName_Variant_Suffix` and in mind and using common sense is generally enough to warrant good asset names. Here are some detailed rules regarding each element.
+Keeping the pattern `Prefix_BaseAssetName_Variant_Suffix` in mind and using common sense is generally enough to produce good asset names. Here are some detailed rules regarding each element.
 
 `Prefix` and `Suffix` are to be determined by the asset type through the following [Asset Name Modifier](#asset-naming--modifiers) tables.
 
 `BaseAssetName` should be determined by a short and easily recognizable name related to the context of this group of assets. For example, if you had a character named Bob, all of Bob's assets would have the `BaseAssetName` of `Bob`.
 
-For unique and specific variations of assets, `Variant` is either a short and easily recognizable name that represents logical grouping of assets that are a subset of an asset's base name. For example, if Bob had multiple skins these skins should still use `Bob` as the `BaseAssetName` but include a recognizable `Variant`. An 'Evil' skin would be referred to as `Bob_Evil` and a 'Retro' skin would be referred to as `Bob_Retro`.
+For unique and specific variations of assets, `Variant` is either a short and easily recognizable name that represents a logical grouping of assets that are a subset of an assets base name. For example, if Bob had multiple skins these skins should still use `Bob` as the `BaseAssetName`, but include a recognizable `Variant`. An 'Evil' skin would be referred to as `Bob_Evil` and a 'Retro' skin would be referred to as `Bob_Retro`.
 
 For unique but generic variations of assets, `Variant` is a two digit number starting at `01`. For example, if you have an environment artist generating nondescript rocks, they would be named `Rock_01`, `Rock_02`, `Rock_03`, etc. Except for rare exceptions, you should never require a three digit variant number. If you have more than 100 assets, you should consider organizing them with different base names or using multiple variant names.
 
