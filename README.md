@@ -330,7 +330,7 @@ Packing 4 channels of data into a texture (RGBA) is not recommended except for a
 
 Equally important as asset names, the directory structure style of a project should be considered law. Asset naming conventions and content directory structure go hand in hand, and a violation of either causes unneeded chaos.
 
-There are multiple ways to lay out the content of a UE5 project. In this style, we will be using a structure that relies more on filtering and search abilities of the Content Browser for those working with assets to find assets of a specific type instead of another common structure that groups asset types with folders.
+There are multiple ways to lay out the content of a UE5 project. In this style, we will be using a structure that relies more on the filtering and search abilities of the Content Browser for those working with assets to find assets of a specific type instead of another common structure that groups asset types with folders.
 
 > If you are using the prefix [naming convention](#asset-naming) above, using folders to contain assets of similar types such as `Meshes`, `Textures`, and `Materials` is a redundant practice as asset types are already both sorted by prefix as well as able to be filtered in the content browser.
 
@@ -424,7 +424,7 @@ All of a project's assets should exist in a folder named after the project. For 
 
 #### Reason 1. No Global Assets
 
-Often in code style guides it is written that you should not pollute the global namespace and this follows the same principle. When assets are allowed to exist outside of a project folder, it often becomes much harder to enforce a strict structure layout as assets not in a folder encourages the bad behavior of not having to organize assets.
+Often in code style guides it is written that you should not pollute the global namespace and this follows the same principle. When assets are allowed to exist outside of a project folder, it often becomes much harder to enforce a strict structure layout as assets not in a folder encourage the bad behavior of not having to organize assets.
 
 Every asset should have a purpose, otherwise it does not belong in a project. If an asset is an experimental test and shouldn't be used by the project it should be put in a [`Developer`](#content-structure--developers-folder) folder.
 
@@ -436,18 +436,18 @@ These dependencies are what can easily get you into trouble. If two project's as
 
 This is also the primary reason why Epic's Marketplace staff enforces the same policy for submitted assets.
 
-After a migration, safe merging of assets can be done using the 'Replace References' tool in the content browser with the added clarity of assets not belonging to a project's top level folder are clearly pending a merge. Once assets are merged and fully migrated, there shouldn't be another top level folder in your Content tree. This method is *100%* guaranteed to make any migrations that occur completely safe.
+After a migration, safe merging of assets can be done using the 'Replace References' tool in the content browser with the added clarity that assets not belonging to a project's top level folder are clearly pending a merge. Once assets are merged and fully migrated, there shouldn't be another top level folder in your Content tree. This method is *100%* guaranteed to make any migrations that occur completely safe.
 
 <details>
     <summary>Master Material Example</summary>
 
 For example, say you created a master material in one project that you would like to use in another project so you migrated that asset over. If this asset is not in a top level folder, it may have a name like `Content/MaterialLibrary/M_Master`. If the target project doesn't have a master material already, this should work without issue.
 
-As work on one or both projects progress, their respective master materials may change to be tailored for their specific projects due to the course of normal development.
+As work on one or both projects progresses, their respective master materials may change to be tailored for their specific projects due to the course of normal development.
 
 The issue comes when, for example, an artist for one project created a nice generic modular set of static meshes and someone wants to include that set of static meshes in the second project. If the artist who created the assets used material instances based on `Content/MaterialLibrary/M_Master` as they're instructed to, when a migration is performed there is a great chance of conflict for the previously migrated `Content/MaterialLibrary/M_Master` asset.
 
-This issue can be hard to predict and hard to account for. The person migrating the static meshes may not be the same person who is familiar with the development of both project's master material, and they may not be even aware that the static meshes in question rely on material instances which then rely on the master material. The Migrate tool requires the entire chain of dependencies to work however, and so it will be forced to grab `Content/MaterialLibrary/M_Master` when it copies these assets to the other project and it will overwrite the existing asset.
+This issue can be hard to predict and hard to account for. The person migrating the static meshes may not be the same person who is familiar with the development of both project's master materials, and they may not be even aware that the static meshes in question rely on material instances which then rely on the master material. The Migrate tool requires the entire chain of dependencies to work however, and so it will be forced to grab `Content/MaterialLibrary/M_Master` when it copies these assets to the other project and it will overwrite the existing asset.
 
 It is at this point where if the master materials for both projects are incompatible in *any way*, you risk breaking possibly the entire material library for a project as well as any other dependencies that may have already been migrated, simply because assets were not stored in a top level folder. The simple migration of static meshes now becomes a very ugly task.
 </details>
@@ -462,7 +462,7 @@ When adhering to the [top level folder rule](#content-structure--top-level), the
 
 #### Reason 4. DLC, Sub-Projects, and Patches Are Easily Maintained
 
-If your project plans to release DLC or has multiple sub-projects associated with it that may either be migrated out or simply not cooked in a build, assets relating to these projects should have their own separate top level content folder. This make cooking DLC separate from main project content far easier. Sub-projects can also be migrated in and out with minimal effort. If you need to change a material of an asset or add some very specific asset override behavior in a patch, you can easily put these changes in a patch folder and work safely without the chance of breaking the core project.
+If your project plans to release DLC or has multiple sub-projects associated with it that may either be migrated out or simply not cooked in a build, assets relating to these projects should have their own separate top level content folder. This makes cooking DLC separate from main project content far easier. Sub-projects can also be migrated in and out with minimal effort. If you need to change the material of an asset or add some very specific asset override behavior in a patch, you can easily put these changes in a patch folder and work safely without the chance of breaking the core project.
 </details>
 
 ### Use Developers Folder For Local Testing <a name="content-structure--developers-folder"></a>
@@ -472,7 +472,7 @@ Assets in the experimental stage should stay in the Developers folder.
 <details>
     <summary>Why?</summary>
 
-During a project's development, it is very common for team members to have a sort of 'sandbox' where they can experiment freely without risking the core project. Because this work may be ongoing, these team members may wish to put their assets on a project's source control server. Not all teams require use of Developer folders, but ones that do use them often run into a common problem with assets submitted to source control.
+During a project's development, it is very common for team members to have a sort of 'sandbox' where they can experiment freely without risking the core project. Because this work may be ongoing, these team members may wish to put their assets on a project's source control server. Not all teams choose to use the Developer folders, but the ones that do use them often run into a common problem with assets submitted to source control.
 
 It is very easy for a team member to accidentally use assets that are not ready for use, which will cause issues once those assets are removed. For example, an artist may be iterating on a modular set of static meshes and still working on getting their sizing and grid snapping correct. If a world builder sees these assets in the main project folder, they might use them all over a level not knowing they could be subject to incredible change and/or removal. This causes massive amounts of re-working for everyone on the team to resolve.
 
@@ -506,7 +506,7 @@ This creates a very clear "don't touch these" message for other team members. No
 <details>
     <summary>Example</summary>
 
-If your project requires pickups that can be placed in a level, there should exist a base Pickup class in `Core/Pickups` that defines base behavior for a pickup. Specific pickups such as a Health or Ammo should exist in a folder such as `/Content/Project/Placeables/Pickups/`. Game designers can define and tweak pickups in this folder however they please, but they should not touch `Core/Pickups` as they may unintentionally break pickups project-wide.
+If your project requires pickups that can be placed in a level, there should exist a base Pickup class in `Core/Pickups` that defines the base behavior for a pickup. Specific pickups such as Health or Ammo should exist in a folder such as `/Content/Project/Placeables/Pickups/`. Game designers can define and tweak pickups in this folder however they please, but they should not touch `Core/Pickups` as they may unintentionally break pickups project-wide.
 </details>
 
 ### Do Not Create Redundant Folders Called `Assets`, `Meshes`, `Textures`, `Materials`, and so on. <a name="content-structure--redundant-folders"></a>
@@ -558,7 +558,7 @@ If you find that the content browser has an empty folder you can't delete, you s
 
 1. Be sure you're using source control.
 1. Immediately run Fix Up Redirectors on your project.
-1. Navigate to the folder on-disk and delete the assets inside.
+1. Navigate to the folder on disk and delete the assets inside.
 1. Close the editor.
 1. Make sure your source control state is in sync (i.e. if using Perforce, run a Reconcile Offline Work on your content directory)
 1. Open the editor. Confirm everything still works as expected. If it doesn't, revert, figure out what went wrong, and try again.
@@ -975,11 +975,11 @@ If Linter is reporting bad UVs and you can't seem to track it down, open the res
 
 #### All Meshes Must Have UVs <a name="static-meshes--uvs--no-missing"></a>
 
-Pretty simple. All meshes, regardless how they are to be used, should not be missing UVs.
+Pretty simple. All meshes, regardless of how they are to be used, should not be missing UVs.
 
 #### All Meshes Must Not Have Overlapping UVs for Lightmaps <a name="static-meshes--uvs--no-overlapping"></a>
 
-Pretty simple. All meshes, regardless how they are to be used, should have valid non-overlapping UVs.
+Pretty simple. All meshes, regardless of how they are to be used, should have valid non-overlapping UVs.
 
 ### LODs Should Be Set Up Correctly <a name="static-meshes--lods"></a>
 
@@ -989,7 +989,7 @@ This is a subjective check on a per-project basis, but as a general rule any mes
 
 This is a subjective check on a per-asset basis, however any modular socketless assets should snap together cleanly based on the project's grid settings.
 
-It is up to the project whether to snap based on a power of 2 grid or on a base 10 grid. However if you are authoring modular socketless assets for the marketplace, Epic's requirement is that they snap cleanly when the grid is set to 10 units or bigger.
+It is up to the project whether to snap based on a power of 2 grid or on a base 10 grid. However, if you are authoring modular socketless assets for the marketplace, Epic requires that they snap cleanly when the grid is set to 10 units or bigger.
 
 ### All Meshes Must Have Collision <a name="static-meshes--collision"></a>
 
@@ -1047,7 +1047,7 @@ For example, `InteractionComponent_Overview`.
 
 #### Demo Level <a name="levels--marketplace-rules--demo"></a>
 
-If your project contains assets that should be demoed or come with some sort of tutorial, you must have a map within your project that contains the name "Demo". This level should also contain documentation within it in some form that illustrates how to use your project. See Epic's Content Examples project for good examples on how to do this.
+If your project contains assets that should be demoed or come with some sort of tutorial, you must have a map within your project that contains the name "Demo". This level should also contain documentation within it in some form that illustrates how to use your project. See Epic's Content Examples project for good examples of how to do this.
 
 If your project is a gameplay mechanic or other form of system as opposed to an art pack, this can be the same as your "Overview" map.
 
@@ -1069,7 +1069,7 @@ For example, `128x512`, `1024x1024`, `2048x1024`, `1024x2048`, `1x512`.
 
 All textures should be of a size appropriate for their standard use case. Appropriate texture density varies from project to project, but all textures within that project should have a consistent density.
 
-For example, if a project's texture density is 8 pixel per 1 unit, a texture that is meant to be applied to a 100x100 unit cube should be 1024x1024, as that is the closest power of 2 that matches the project's texture density.
+For example, if a project's texture density is 8 pixels per 1 unit, a texture that is meant to be applied to a 100x100 unit cube should be 1024x1024, as that is the closest power of 2 that matches the project's texture density.
 
 ### Textures Should Be No Bigger than 8192 <a name="textures--maximum-size"></a>
 
