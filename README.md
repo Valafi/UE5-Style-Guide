@@ -338,7 +338,7 @@ There are multiple ways to lay out the content of a UE5 project. In this style, 
     <summary>Example Project Content Structure</summary>
     <pre>
 |-- Content
-    |-- <a href="#2.2">GenericShooter</a>
+    |-- <a href="#content-structure--top-level">GenericShooter</a>
         |-- Art
         |   |-- Industrial
         |   |   |-- Ambient
@@ -353,15 +353,15 @@ There are multiple ways to lay out the content of a UE5 project. In this style, 
         |-- Characters
         |   |-- Bob
         |   |-- Common
-        |   |   |-- <a href="#2.7">Animations</a>
+        |   |   |-- <a href="#content-structure--large-sets">Animations</a>
         |   |   |-- Audio
         |   |-- Jack
         |   |-- Steve
-        |   |-- <a href="#2.1.3">Zoe</a>
-        |-- <a href="#2.5">Core</a>
+        |   |-- <a href="#content-structure--folder-names--no-unicode">Zoe</a>
+        |-- <a href="#content-structure--core-folder">Core</a>
         |   |-- Characters
         |   |-- Engine
-        |   |-- <a href="#2.1.2">GameModes</a>
+        |   |-- <a href="#content-structure--folder-names--no-spaces">GameModes</a>
         |   |-- Interactables
         |   |-- Pickups
         |   |-- Weapons
@@ -369,10 +369,10 @@ There are multiple ways to lay out the content of a UE5 project. In this style, 
         |   |-- Electrical
         |   |-- Fire
         |   |-- Weather
-        |-- <a href="#2.4">Maps</a>
+        |-- <a href="#content-structure--maps-folder">Maps</a>
         |   |-- Campaign1
         |   |-- Campaign2
-        |-- <a href="#2.8">MaterialLibrary</a>
+        |-- <a href="#content-structure--material-library">MaterialLibrary</a>
         |   |-- Debug
         |   |-- Metal
         |   |-- Paint
