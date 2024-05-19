@@ -45,10 +45,10 @@ Information regarding Mr. Allar's Linter can be found at his [ReadTheDocs](https
     * [No Player Visible Z Fighting](#levels-no-visible-z-fighting)
     * [Marketplace Specific Rules](#levels-mp-rules)
 1. [Textures](#textures)
-    1. [Dimensions Are Powers of 2](#textures-dimensions)
-    1. [Texture Density Should Be Uniform](#textures-density)
-    1. [Textures Should Be No Bigger than 8192](#textures-max-size)
-    1. [Textures Should Be Grouped Correctly](#textures-group)
+    * [Dimensions Are Powers of 2](#textures-dimensions)
+    * [Texture Density Should Be Uniform](#textures-density)
+    * [Textures Should Be No Bigger than 8192](#textures-max-size)
+    * [Textures Should Be Grouped Correctly](#textures-group)
 
 ## Important Terminology
 
