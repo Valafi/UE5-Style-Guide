@@ -334,9 +334,9 @@ There are multiple ways to lay out the content of a UE5 project. In this style, 
 
 > If you are using the prefix [naming convention](#asset-naming) above, using folders to contain assets of similar types such as `Meshes`, `Textures`, and `Materials` is a redundant practice as asset types are already both sorted by prefix as well as able to be filtered in the content browser.
 
-### Example Project Content Structure <a name="content-structure--example"><a>
-
-<pre>
+<details>
+    <summary>Example Project Content Structure</summary>
+    <pre>
 |-- Content
     |-- <a href="#2.2">GenericShooter</a>
         |-- Art
@@ -386,7 +386,8 @@ There are multiple ways to lay out the content of a UE5 project. In this style, 
             |   |-- DesertEagle
             |   |-- RocketPistol
             |-- Rifles
-</pre>
+    </pre>
+</details>
 
 The reasons for this structure are listed in the following sub-sections.
 
@@ -439,7 +440,6 @@ After a migration, safe merging of assets can be done using the 'Replace Referen
 
 <details>
     <summary>Master Material Example</summary>
-
 For example, say you created a master material in one project that you would like to use in another project so you migrated that asset over. If this asset is not in a top level folder, it may have a name like `Content/MaterialLibrary/M_Master`. If the target project doesn't have a master material already, this should work without issue.
 
 As work on one or both projects progress, their respective master materials may change to be tailored for their specific projects due to the course of normal development.
@@ -466,6 +466,10 @@ If your project plans to release DLC or has multiple sub-projects associated wit
 
 ### Use Developers Folder For Local Testing <a name="content-structure--developers-folder"></a>
 
+Assets in the experimental stage should stay in the Developers folder.
+
+<details>
+    <summary>Why?</summary>
 During a project's development, it is very common for team members to have a sort of 'sandbox' where they can experiment freely without risking the core project. Because this work may be ongoing, these team members may wish to put their assets on a project's source control server. Not all teams require use of Developer folders, but ones that do use them often run into a common problem with assets submitted to source control.
 
 It is very easy for a team member to accidentally use assets that are not ready for use, which will cause issues once those assets are removed. For example, an artist may be iterating on a modular set of static meshes and still working on getting their sizing and grid snapping correct. If a world builder sees these assets in the main project folder, they might use them all over a level not knowing they could be subject to incredible change and/or removal. This causes massive amounts of re-working for everyone on the team to resolve.
@@ -473,14 +477,18 @@ It is very easy for a team member to accidentally use assets that are not ready 
 If these modular assets were placed in a Developer folder, the world builder should never have had a reason to use them and the whole issue would never happen. The Content Browser has specific View Options that will hide Developer folders (they are hidden by default) making it impossible to accidentally use Developer assets under normal use.
 
 Once the assets are ready for use, an artist simply has to move the assets into the project specific folder and fix up redirectors. This is essentially 'promoting' the assets from experimental to production.
+</details>
 
 ### All Map Files Belong In A Folder Called Maps <a name="content-structure--maps-folder"></a>
 
 Map files are incredibly special and it is common for every project to have its own map naming system, especially if they work with sub-levels or streaming levels. No matter what system of map organization is in place for the specific project, all levels should belong in `/Content/Project/Maps`.
 
+<details>
+    <summary>Why?</summary>
 Being able to tell someone to open a specific map without having to explain where it is is a great time saver and general 'quality of life' improvement. It is common for levels to be within sub-folders of `Maps`, such as `Maps/Campaign1/` or `Maps/Arenas`, but the most important thing here is that they all exist within `/Content/Project/Maps`.
 
 This also simplifies the job of cooking for engineers. Wrangling levels for a build process can be extremely frustrating if they have to dig through arbitrary folders for them. If a team's maps are all in one place, it is much harder to accidentally not cook a map in a build. It also simplifies lighting build scripts as well as QA processes.
+</details>
 
 ### Use A `Core` Folder For Critical Blueprints And Other Assets <a name="content-structure--core-folder"></a>
 
@@ -496,14 +504,12 @@ This creates a very clear "don't touch these" message for other team members. No
 If your project requires pickups that can be placed in a level, there should exist a base Pickup class in `Core/Pickups` that defines base behavior for a pickup. Specific pickups such as a Health or Ammo should exist in a folder such as `/Content/Project/Placeables/Pickups/`. Game designers can define and tweak pickups in this folder however they please, but they should not touch `Core/Pickups` as they may unintentionally break pickups project-wide.
 </details>
 
-### Do Not Create Folders Called `Assets` or `AssetTypes` <a name="content-structure--redundant-folders"></a>
+### Do Not Create Redundant Folders Called `Assets`, `Meshes`, `Textures`, `Materials`, and so on. <a name="content-structure--redundant-folders"></a>
 
-#### Creating a folder named `Assets` is redundant <a name="content-structure--redundant-folders--generic"></a>
+The [top level rule](#content-structure--top-level) and [asset naming conventions](#asset-naming) make these folders redundant.
 
-All assets are assets.
-
-#### Creating a folder named `Meshes`, `Textures`, or `Materials` is redundant <a name="content-structure--redundant-folders--specific"></a>
-
+<details>
+    <summary>Why?</summary>
 All asset names are named with their asset type in mind. These folders offer only redundant information and the use of these folders can easily be replaced with the robust and easy to use filtering system the Content Browser provides.
 
 Want to view only static mesh in `Environment/Rocks/`? Simply turn on the Static Mesh filter. If all assets are named correctly, they will also be sorted in alphabetical order regardless of prefixes. Want to view both static meshes and skeletal meshes? Simply turn on both filters. This eliminates the need to potentially have to `Control-Click` select two folders in the Content Browser's tree view.
@@ -511,6 +517,7 @@ Want to view only static mesh in `Environment/Rocks/`? Simply turn on the Static
 > This also extends the full path name of an asset for very little benefit. The `S_` prefix for a static mesh is only two characters, whereas `Meshes/` is seven characters.
 
 Not doing this also prevents the inevitability of someone putting a static mesh or a texture in a `Materials` folder.
+</details>
 
 ### Very Large Asset Sets Get Their Own Folder Layout <a name="content-structure--large-sets"></a>
 
