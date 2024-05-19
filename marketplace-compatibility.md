@@ -1,10 +1,10 @@
 # UE4 Marketplace TRC + Style Guide and Linter Compatibility
 
-Epic's Marketplace TRC can be found here: https://forums.unrealengine.com/showthread.php?151905-Marketplace-Technical-Review-Checklist
+Epic's Marketplace TRC can be found here: <https://forums.unrealengine.com/showthread.php?151905-Marketplace-Technical-Review-Checklist>
 
 This document shows its compatibility with the style guide on this repo, as well as the UE4 Marketplace Plugin Linter.
 
-## Icon Guide:
+## Icon Guide
 
 * :white_check_mark: - Compatible
 * :green_heart: - Linter Supported (Can currently be checked through automation)
@@ -131,7 +131,7 @@ Gamemakin LLC and its product Linter makes no effort to check for legal complian
 
 Gamemakin LLC's Style Guide does not have character specfics as characters are quite diverse. Epic forces characters to adhere to the Epic Skeleton for marketplace assets even when a character should have a different skeleton due to things like having facial animations, having articulation and movements not supported by Epic's skeleton, having wildly different proportions to the point where using even re-targeted Epic animations don't make sense, and other factors.
 
-When a humanoid does warrant being rigged to the Epic skeleton, we agree with every review item in this list. This checklist however is not fully compatible because we don't believe line item 83 should be enforced as strictly as it currently is. 
+When a humanoid does warrant being rigged to the Epic skeleton, we agree with every review item in this list. This checklist however is not fully compatible because we don't believe line item 83 should be enforced as strictly as it currently is.
 
 | Line  | Review Check Item                                                          | Compatibility Notes                                                             |
 | :---: | :------------------------------------------------------------------------- | :------------------------------------------------------------------------------ |
@@ -177,6 +177,7 @@ When a humanoid does warrant being rigged to the Epic skeleton, we agree with ev
 | 105   | Unnecessary/Unused plugins are disabled                                    | :o: Blueprint only projects can sometimes be forced to need C++ compiling when disabling unused built-in plugins. Until this is fixed, can not recommend fully disabling every unused plugin. |
 
 ## Notes From Reviewer
+
 | Line  | Review Check Item                                                          | Compatibility Notes                                                             |
 | :---: | :------------------------------------------------------------------------- | :------------------------------------------------------------------------------ |
 | 107   | Changes have previously been requested                                     | :o: Specific to Marketplace Review Process, style guide does not apply.         |
