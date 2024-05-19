@@ -54,7 +54,7 @@ Information regarding Mr. Allar's Linter can be found on his [ReadTheDocs](https
 
 ### Identifier <a name="terminology--identifier"></a>
 
-An `Identifier` is anything that resembles or serves as a "name". For example, the name of an asset, or the name of a material later, or a blueprint property, a variable, or a folder name, or for a data table row name, etc...
+An Identifier is anything that resembles or serves as a "name". For example, the name of an asset, the name of a material layer, a blueprint property, a variable, a folder name, or a data table row name, etc...
 
 ### Cases <a name="terminology--cases"></a>
 
@@ -108,9 +108,9 @@ Keeping the pattern `Prefix_BaseAssetName_Variant_Suffix` in mind and using comm
 
 `BaseAssetName` should be determined by a short and easily recognizable name related to the context of this group of assets. For example, if you had a character named Bob, all of Bob's assets would have the `BaseAssetName` of `Bob`.
 
-For unique and specific variations of assets, `Variant` is either a short and easily recognizable name that represents a logical grouping of assets that are a subset of an assets base name. For example, if Bob had multiple skins these skins should still use `Bob` as the `BaseAssetName`, but include a recognizable `Variant`. An 'Evil' skin would be referred to as `Bob_Evil` and a 'Retro' skin would be referred to as `Bob_Retro`.
+For unique and specific variations of assets, `Variant` is either a short and easily recognizable name that represents a logical grouping of assets that are a subset of an asset's base name. For example, if Bob had multiple skins these skins should still use `Bob` as the `BaseAssetName`, but include a recognizable `Variant`. An 'Evil' skin would be referred to as `Bob_Evil` and a 'Retro' skin would be referred to as `Bob_Retro`.
 
-For unique but generic variations of assets, `Variant` is a two digit number starting at `01`. For example, if you have an environment artist generating nondescript rocks, they would be named `Rock_01`, `Rock_02`, `Rock_03`, etc. Except for rare exceptions, you should never require a three digit variant number. If you have more than 100 assets, you should consider organizing them with different base names or using multiple variant names.
+For unique but generic variations of assets, `Variant` is a two-digit number starting at `01`. For example, if you have an environment artist generating nondescript rocks, they would be named `Rock_01`, `Rock_02`, `Rock_03`, etc. Except for rare exceptions, you should never require a three-digit variant number. If you have more than 100 assets, you should consider organizing them with different base names or using multiple variant names.
 
 Depending on how your asset variants are made, you can chain together variant names. For example, if you are creating flooring assets for an Arch Viz project you should use the base name `Flooring` with chained variants such as `Flooring_Marble_01`, `Flooring_Maple_01`, `Flooring_Tile_Squares_01`.
 
