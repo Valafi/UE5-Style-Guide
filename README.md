@@ -54,12 +54,6 @@ Information regarding Mr. Allar's Linter can be found at his [ReadTheDocs](https
 
 ## Important Terminology
 
-<a name="terms-level-map"></a>
-
-### Level/Map
-
-The word 'map' generally refers to what the average person calls a 'level' and may be used interchangeably. See this term's history [here](https://en.wikipedia.org/wiki/Level_(video_gaming)).
-
 <a name="terms-identifiers"></a>
 
 ### Identifier
@@ -83,28 +77,6 @@ There are a few different ways you can `CaseWordsWhenNaming`. Here are some comm
 > #### Snake_case
 >
 > Words can arbitrarily start upper or lowercase but words are separated by an underscore, e.g. `desert_Eagle`, `Style_Guide`, `a_Series_of_Words`.
-
-<a name="terms-var-prop"></a>
-
-### Variables / Properties
-
-The words 'variable' and 'property' in most contexts are interchangable. If they are both used together in the same context however:
-
-<a name="terms-property"></a>
-
-#### Property
-
-Usually refers to a variable defined in a class. For example, if `BP_Barrel` had a variable `bExploded`, `bExploded` may be referred to as a property of `BP_Barrel`.
-
-When in the context of a class, it is often used to imply accessing previously defined data.
-
-<a name="terms-variable"></a>
-
-#### Variable
-
-Usually refers to a variable defined as a function argument or a local variable inside a function.
-
-When in the context of a class, it is often used to convey discussion about its definition and what it will hold.
 
 <a name="00"></a>
 
@@ -711,8 +683,6 @@ Broken blueprints can cause problems that manifest in other ways, such as broken
 <a name="bp-vars"></a>
 
 ### 3.2 Variables
-
-The words `variable` and `property` may be used interchangeably.
 
 <a name="3.2.1"></a>
 <a name="bp-var-naming"></a>
