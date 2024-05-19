@@ -9,10 +9,8 @@ Information regarding Mr. Allar's Linter can be found at his [ReadTheDocs](https
 ## Table of Contents
 
 1. [Important Terminology](#important-terminology)
-    * [Levels/Maps](#terms-level-map)
     * [Identifiers](#terms-identifiers)
     * [Cases](#terms-cases)
-    * [Variables / Properties](#terms-var-prop)
 1. [Globally Enforced Opinions](#00)
     * [Forbidden Characters](#00.1)
 1. [Asset Naming Conventions](#anc)
