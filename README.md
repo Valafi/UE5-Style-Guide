@@ -11,6 +11,7 @@ Information regarding Mr. Allar's Linter can be found on his [ReadTheDocs](https
 0. [Terminology](#terminology)
     * [Identifier](#terminology--identifier)
     * [Cases](#terminology--cases)
+    * [Channel Packing](#terminology--channel-packing)
 1. [Identifiers](#identifiers)
     * [Forbidden Characters](#identifiers--forbidden-characters)
 2. [Asset Naming Conventions](#asset-naming)
@@ -89,6 +90,12 @@ There are a few different ways you can `CaseWordsWhenNaming`. Here are some comm
 > #### Snake_case <a name="terminology--snake_case"></a>
 >
 > Words can arbitrarily start upper or lowercase but words are separated by an underscore, e.g. `desert_Eagle`, `Style_Guide`, `a_Series_of_Words`.
+
+### Channel Packing <a name="terminology--channel-packing"></a>
+
+It is common practice to pack multiple layers of texture data into one texture. For example, Emissive, Roughness, and Ambient Occlusion could be packed together as the Red, Green, and Blue channels of a texture respectively.
+
+Packing 4 channels of data into a texture (RGBA) is not recommended except for an Alpha/Opacity mask in the Diffuse/Albedo's alpha channel as a texture with an alpha channel incurs more overhead than one without.
 
 ## 1. Identifiers <a name="identifiers"></a>
 
@@ -251,20 +258,22 @@ When naming an asset, use these tables to determine the prefix and suffix to use
 | Texture (Mask)          | T_         | _M         |                                  |
 | Texture (Specular)      | T_         | _S         |                                  |
 | Texture (Metallic)      | T_         | _M         |                                  |
-| Texture (Packed)        | T_         | _*         | See notes below about [packing](#asset-naming--modifiers--textures--packing). |
+| Texture (Packed)        | T_         | _*         | See notes below about [packing](#asset-naming--modifiers--channel-packing). |
 | Texture Cube            | TC_        |            |                                  |
 | Media Texture           | MT_        |            |                                  |
 | Render Target           | RT_        |            |                                  |
 | Cube Render Target      | RTC_       |            |                                  |
 | Texture Light Profile   | TLP        |            |                                  |
 
-#### Texture Packing <a name="asset-naming--modifiers--textures--packing"></a>
+#### Channel Packing* Suffix <a name="asset-naming--modifiers--channel-packing"></a>
 
-It is common practice to pack multiple layers of texture data into one texture. For example, Emissive, Roughness, and Ambient Occlusion could be packed together as the Red, Green, and Blue channels of a texture respectively. To determine the suffix, simply stack the given suffix letters from above together, e.g. `_ERO`.
+Simply stack the suffix letters from the above table together in the order of the packed textures.
+
+For example, if Emissive, Roughness, and Ambient Occlusion were channel packed together, then the suffix would be `_ERO`.
 
 > It is generally acceptable to include an Alpha/Opacity layer in your Diffuse/Albedo's alpha channel and as this is common practice, adding `A` to the `_D` suffix is optional.
 
-Packing 4 channels of data into a texture (RGBA) is not recommended except for an Alpha/Opacity mask in the Diffuse/Albedo's alpha channel as a texture with an alpha channel incurs more overhead than one without.
+*See [Channel Packing](#terminology--channel-packing)
 
 ### Miscellaneous <a name="asset-naming--modifiers--misc"></a>
 
