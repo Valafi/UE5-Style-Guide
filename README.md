@@ -18,11 +18,11 @@ Information regarding Mr. Allar's Linter can be found on his [ReadTheDocs](https
     * [Asset Name Modifiers](#asset-naming--modifiers)
 3. [Content Directory Structure](#content-structure)
     * [Folder Names](#content-structure--folder-names)
-    * [Use A Top Level Folder For Project Specific Assets](#content-structure--top-level)
-    * [Use Developers Folder For Local Testing](#content-structure--developers-folder)
-    * [All Map Files Belong In A Folder Called Maps](#content-structure--maps-folder)
-    * [Use A `Core` Folder For Critical Blueprints And Other Assets](#content-structure--core-folder)
-    * [Do Not Create Folders Called `Assets` or `AssetTypes`](#content-structure--redundant-folders)
+    * [Use a Top Level Folder for Project Specific Assets](#content-structure--top-level)
+    * [Use the Developers Folder for Local Testing](#content-structure--developers-folder)
+    * [All Map Files Belong in a Folder Called Maps](#content-structure--maps-folder)
+    * [Use a `Core` Folder for Critical Blueprints and Other Assets](#content-structure--core-folder)
+    * [Do Not Create Folders Called `Assets`, `Meshes`, Etc.](#content-structure--redundant-folders)
     * [Very Large Asset Sets Get Their Own Folder Layout](#content-structure--large-sets)
     * [`MaterialLibrary`](#content-structure--material-library)
     * [No Empty Folders](#content-structure--no-empty-folders)
@@ -34,20 +34,20 @@ Information regarding Mr. Allar's Linter can be found on his [ReadTheDocs](https
 5. [Static Meshes](#static-meshes)
     * [Static Mesh UVs](#static-meshes--uvs)
     * [LODs Should Be Set Up Correctly](#static-meshes--lods)
-    * [Modular Socketless Assets Should Snap To The Grid Cleanly](#static-meshes--modular-snapping)
+    * [Modular Socketless Assets Should Snap to the Grid Cleanly](#static-meshes--modular-snapping)
     * [All Meshes Must Have Collision](#static-meshes--collision)
     * [All Meshes Should Be Scaled Correctly](#static-meshes--scaled)
 6. [Niagara](#niagara)
     * [No Spaces, Ever](#niagara--no-spaces)
 7. [Levels / Maps](#levels)
-    * [No Errors Or Warnings](#levels--no-errors-or-warnings)
+    * [No Errors or Warnings](#levels--no-errors-or-warnings)
     * [Lighting Should Be Built](#levels--lighting-built)
     * [No Player Visible Z Fighting](#levels--no-visible-z-fighting)
     * [Marketplace Specific Rules](#levels--marketplace-rules)
 8. [Textures](#textures)
     * [Dimensions Are Powers of 2](#textures--dimensions)
     * [Texture Density Should Be Uniform](#textures--uniform-density)
-    * [Textures Should Be No Bigger than 8192](#textures--maximum-size)
+    * [Textures Should Be No Bigger Than 8192](#textures--maximum-size)
     * [Textures Should Be Grouped Correctly](#textures--groups)
 
 ## 0. Terminology <a name="terminology"></a>
@@ -90,7 +90,7 @@ Any `Identifier` should strive to only have the following characters when possib
 * 1234567890
 * _ (sparingly)
 
-The reasoning for this is to ensure the greatest compatibility of all data across all platforms across all tools, and to help prevent downtime due to potentially bad character handling for identifiers in code you don't control.
+This ensures the greatest compatibility for data using identifiers across all platforms and tools, and by extension prevents downtime due to potentially bad character handling for identifiers in code you don't control.
 
 ## 2. Asset Naming Conventions <a name="asset-naming"></a>
 
@@ -108,9 +108,9 @@ Keeping the pattern `Prefix_BaseAssetName_Variant_Suffix` in mind and using comm
 
 `BaseAssetName` should be determined by a short and easily recognizable name related to the context of this group of assets. For example, if you had a character named Bob, all of Bob's assets would have the `BaseAssetName` of `Bob`.
 
-For unique and specific variations of assets, `Variant` is either a short and easily recognizable name that represents a logical grouping of assets that are a subset of an asset's base name. For example, if Bob had multiple skins these skins should still use `Bob` as the `BaseAssetName`, but include a recognizable `Variant`. An 'Evil' skin would be referred to as `Bob_Evil` and a 'Retro' skin would be referred to as `Bob_Retro`.
+For unique and specific variations of assets, the `Variant` is either a short and easily recognizable name that represents a logical grouping of assets that are a subset of an asset's base name. For example, if Bob had multiple skins these skins should still use `Bob` as the `BaseAssetName`, but include a recognizable `Variant`. An 'Evil' skin would be referred to as `Bob_Evil` and a 'Retro' skin would be referred to as `Bob_Retro`.
 
-For unique but generic variations of assets, `Variant` is a two-digit number starting at `01`. For example, if you have an environment artist generating nondescript rocks, they would be named `Rock_01`, `Rock_02`, `Rock_03`, etc. Except for rare exceptions, you should never require a three-digit variant number. If you have more than 100 assets, you should consider organizing them with different base names or using multiple variant names.
+For unique but generic variations of assets, the `Variant` is a two-digit number starting at `01`. For example, if you have an environment artist generating nondescript rocks, they would be named `Rock_01`, `Rock_02`, `Rock_03`, etc. Except for rare exceptions, you should never require a three-digit variant number. If you have more than 100 assets, you should consider organizing them with different base names or using multiple variant names.
 
 Depending on how your asset variants are made, you can chain together variant names. For example, if you are creating flooring assets for an Arch Viz project you should use the base name `Flooring` with chained variants such as `Flooring_Marble_01`, `Flooring_Maple_01`, `Flooring_Tile_Squares_01`.
 
@@ -242,7 +242,7 @@ When naming an asset, use these tables to determine the prefix and suffix to use
 
 #### Texture Packing <a name="asset-naming--modifiers--textures--packing"></a>
 
-It is common practice to pack multiple layers of texture data into one texture. An example of this is packing Emissive, Roughness, Ambient Occlusion together as the Red, Green, and Blue channels of a texture respectively. To determine the suffix, simply stack the given suffix letters from above together, e.g. `_ERO`.
+It is common practice to pack multiple layers of texture data into one texture. For example, Emissive, Roughness, and Ambient Occlusion could be packed together as the Red, Green, and Blue channels of a texture respectively. To determine the suffix, simply stack the given suffix letters from above together, e.g. `_ERO`.
 
 > It is generally acceptable to include an Alpha/Opacity layer in your Diffuse/Albedo's alpha channel and as this is common practice, adding `A` to the `_D` suffix is optional.
 
@@ -403,17 +403,17 @@ PascalCase refers to starting a name with a capital letter and then instead of u
 
 #### Never Use Spaces <a name="content-structure--folder-names--no-spaces"></a>
 
-Re-enforcing [Always Use PascalCase](#content-structure--folder-names--pascalcase), never use spaces. Spaces can cause various engineering tools and batch processes to fail. Ideally, your project's root also contains no spaces and is located somewhere such as `D:\Project` instead of `C:\Users\My Name\My Documents\Unreal Projects`.
+This is a re-enforcement of the most important part of [Always Use PascalCase](#content-structure--folder-names--pascalcase): never use spaces. Spaces can cause various engineering tools and batch processes to fail. Ideally, your project's root also contains no spaces and is located somewhere such as `D:\Project` instead of `C:\Users\My Name\My Documents\Unreal Projects`.
 
 #### Never Use Unicode Characters And Other Symbols <a name="content-structure--folder-names--no-unicode"></a>
 
-If one of your game characters is named 'Zoë', its folder name should be `Zoe`. Unicode characters can be worse than [Spaces](#content-structure--folder-names--no-spaces) for engineering tool and some parts of UE5 don't support Unicode characters in paths either.
+If one of your game characters is named 'Zoë', its folder name should be `Zoe`. Unicode characters can be worse than [Spaces](#content-structure--folder-names--no-spaces) for engineering tools and some parts of UE5 don't support Unicode characters in paths either.
 
 Related to this, if your project has [unexplained issues](https://answers.unrealengine.com/questions/101207/undefined.html) and your computer's user name has a Unicode character (i.e. your name is `Zoë`), any project located in your `My Documents` folder will suffer from this issue. Often simply moving your project to something like `D:\Project` will fix these mysterious issues.
 
-Using other characters outside `a-z`, `A-Z`, and `0-9` such as `@`, `-`, `_`, `,`, `*`, and `#` can also lead to unexpected and hard to track issues on other platforms, source control, and weaker engineering tools.
+Using other characters outside `a-z`, `A-Z`, and `0-9` such as `@`, `-`, `_`, `,`, `*`, and `#` can also lead to unexpected and hard-to-track issues on other platforms, source control, and weaker engineering tools.
 
-### Use a Top Level Folder For Project Specific Assets <a name="content-structure--top-level"><a>
+### Use a Top Level Folder for Project Specific Assets <a name="content-structure--top-level"><a>
 
 All of a project's assets should exist in a folder named after the project. For example, if your project is named 'Generic Shooter', *all* of it's content should exist in `Content/GenericShooter`.
 
@@ -424,7 +424,7 @@ All of a project's assets should exist in a folder named after the project. For 
 
 #### Reason 1. No Global Assets
 
-Often in code style guides it is written that you should not pollute the global namespace and this follows the same principle. When assets are allowed to exist outside of a project folder, it often becomes much harder to enforce a strict structure layout as assets not in a folder encourage the bad behavior of not having to organize assets.
+Often in code style guides it is written that you should not pollute the global namespace and this follows the same principle. When assets are allowed to exist outside of a project folder, it often becomes much harder to enforce a strict structure layout because assets not in a folder encourage the bad behavior of not having to organize assets.
 
 Every asset should have a purpose, otherwise it does not belong in a project. If an asset is an experimental test and shouldn't be used by the project it should be put in a [`Developer`](#content-structure--developers-folder) folder.
 
@@ -447,7 +447,7 @@ As work on one or both projects progresses, their respective master materials ma
 
 The issue comes when, for example, an artist for one project created a nice generic modular set of static meshes and someone wants to include that set of static meshes in the second project. If the artist who created the assets used material instances based on `Content/MaterialLibrary/M_Master` as they're instructed to, when a migration is performed there is a great chance of conflict for the previously migrated `Content/MaterialLibrary/M_Master` asset.
 
-This issue can be hard to predict and hard to account for. The person migrating the static meshes may not be the same person who is familiar with the development of both project's master materials, and they may not be even aware that the static meshes in question rely on material instances which then rely on the master material. The Migrate tool requires the entire chain of dependencies to work however, and so it will be forced to grab `Content/MaterialLibrary/M_Master` when it copies these assets to the other project and it will overwrite the existing asset.
+This issue can be hard to predict and hard to account for. The person migrating the static meshes may not be the same person who is familiar with the development of both project's master materials, and they may not be even aware that the static meshes in question rely on material instances which then rely on the master material. The Migrate tool requires the entire chain of dependencies to work however, so it will be forced to grab `Content/MaterialLibrary/M_Master` when it copies these assets to the other project and it will overwrite the existing asset.
 
 It is at this point where if the master materials for both projects are incompatible in *any way*, you risk breaking possibly the entire material library for a project as well as any other dependencies that may have already been migrated, simply because assets were not stored in a top level folder. The simple migration of static meshes now becomes a very ugly task.
 </details>
@@ -465,7 +465,7 @@ When adhering to the [top level folder rule](#content-structure--top-level), the
 If your project plans to release DLC or has multiple sub-projects associated with it that may either be migrated out or simply not cooked in a build, assets relating to these projects should have their own separate top level content folder. This makes cooking DLC separate from main project content far easier. Sub-projects can also be migrated in and out with minimal effort. If you need to change the material of an asset or add some very specific asset override behavior in a patch, you can easily put these changes in a patch folder and work safely without the chance of breaking the core project.
 </details>
 
-### Use Developers Folder For Local Testing <a name="content-structure--developers-folder"></a>
+### Use the Developers Folder for Local Testing <a name="content-structure--developers-folder"></a>
 
 Assets in the experimental stage should stay in the Developers folder.
 
@@ -481,7 +481,7 @@ If these modular assets were placed in a Developer folder, the world builder sho
 Once the assets are ready for use, an artist simply has to move the assets into the project specific folder and fix up redirectors. This is essentially 'promoting' the assets from experimental to production.
 </details>
 
-### All Map Files Belong In A Folder Called Maps <a name="content-structure--maps-folder"></a>
+### All Map Files Belong in a Folder Called Maps <a name="content-structure--maps-folder"></a>
 
 Map files are incredibly special and it is common for every project to have its own map naming system, especially if they work with sub-levels or streaming levels. No matter what system of map organization is in place for the specific project, all levels should belong in `/Content/Project/Maps`.
 
@@ -493,14 +493,14 @@ Being able to tell someone to open a specific map without having to explain wher
 This also simplifies the job of cooking for engineers. Wrangling levels for a build process can be extremely frustrating if they have to dig through arbitrary folders for them. If a team's maps are all in one place, it is much harder to accidentally not cook a map in a build. It also simplifies lighting build scripts as well as QA processes.
 </details>
 
-### Use A `Core` Folder For Critical Blueprints And Other Assets <a name="content-structure--core-folder"></a>
+### Use a `Core` Folder for Critical Blueprints and Other Assets <a name="content-structure--core-folder"></a>
 
 Use `/Content/Project/Core` folder for assets that are absolutely fundamental to a project's workings. For example, base `GameMode`, `Character`, `PlayerController`, `GameState`, `PlayerState`, and related Blueprints should live here.
 
 <details>
     <summary>Why?</summary>
 
-This creates a very clear "don't touch these" message for other team members. Non-engineers should have very little reason to enter the `Core` folder. Following good code structure style, designers should be making their gameplay tweaks in child classes that expose functionality. World builders should be using prefab Blueprints in designated folders instead of potentially abusing base classes.
+This creates a very clear "don't touch these" message for other team members. Non-engineers should have very little reason to enter the `Core` folder. When following a good code structure style, designers should be making their gameplay tweaks in child classes that expose functionality. World builders should be using prefab Blueprints in designated folders instead of potentially abusing base classes.
 </details>
 
 <details>
@@ -509,14 +509,14 @@ This creates a very clear "don't touch these" message for other team members. No
 If your project requires pickups that can be placed in a level, there should exist a base Pickup class in `Core/Pickups` that defines the base behavior for a pickup. Specific pickups such as Health or Ammo should exist in a folder such as `/Content/Project/Placeables/Pickups/`. Game designers can define and tweak pickups in this folder however they please, but they should not touch `Core/Pickups` as they may unintentionally break pickups project-wide.
 </details>
 
-### Do Not Create Redundant Folders Called `Assets`, `Meshes`, `Textures`, `Materials`, and so on. <a name="content-structure--redundant-folders"></a>
+### Do Not Create Redundant Folders Called `Assets`, `Meshes`, `Textures`, `Materials`, and So On <a name="content-structure--redundant-folders"></a>
 
 The [top level rule](#content-structure--top-level) and [asset naming conventions](#asset-naming) make these folders redundant.
 
 <details>
     <summary>Why?</summary>
 
-All asset names are named with their asset type in mind. These folders offer only redundant information and the use of these folders can easily be replaced with the robust and easy to use filtering system the Content Browser provides.
+All asset names are named with their asset type in mind. These folders offer only redundant information and the use of these folders can easily be replaced with the robust and easy-to-use filtering system the Content Browser provides.
 
 Want to view only static mesh in `Environment/Rocks/`? Simply turn on the Static Mesh filter. If all assets are named correctly, they will also be sorted in alphabetical order regardless of prefixes. Want to view both static meshes and skeletal meshes? Simply turn on both filters. This eliminates the need to potentially have to `Control-Click` select two folders in the Content Browser's tree view.
 
@@ -529,11 +529,11 @@ Not doing this also prevents the inevitability of someone putting a static mesh 
 
 This can be seen as a pseudo-exception to [redundant folders](#content-structure--redundant-folders).
 
-There are certain asset types that have a huge volume of related files where each asset has a unique purpose. The two most common are Animation and Audio assets. If you find yourself having 15+ of these assets that belong together, they should be together.
+Some asset types can have a huge volume of related files where each asset has a unique purpose. The two most common are Animation and Audio assets. If you find yourself having 15+ of these assets that belong together, they should be together.
 
 For example, animations that are shared across multiple characters should lay in `Characters/Common/Animations` and may have sub-folders such as `Locomotion` or `Cinematic`.
 
-> This does not apply to assets like textures and materials. It is common for a `Rocks` folder to have a large amount of textures if there are a large amount of rocks, however these textures are generally only related to a few specific rocks and should be named appropriately. Even if these textures are part of a [Material Library](#content-structure--material-library).
+> This does not apply to assets like textures and materials. It is common for a `Rocks` folder to have a lot of textures if there are a lot of rocks, but these textures are generally only related to a few specific rocks and should be named appropriately. Even if these textures are part of a [Material Library](#content-structure--material-library).
 
 ### `MaterialLibrary` <a name="content-structure--material-library"></a>
 
@@ -558,7 +558,7 @@ If you find that the content browser has an empty folder you can't delete, you s
 
 1. Be sure you're using source control.
 1. Immediately run Fix Up Redirectors on your project.
-1. Navigate to the folder on disk and delete the assets inside.
+1. Navigate to the folder on your disk and delete the assets inside.
 1. Close the editor.
 1. Make sure your source control state is in sync (i.e. if using Perforce, run a Reconcile Offline Work on your content directory)
 1. Open the editor. Confirm everything still works as expected. If it doesn't, revert, figure out what went wrong, and try again.
@@ -985,9 +985,9 @@ Pretty simple. All meshes, regardless of how they are to be used, should have va
 
 This is a subjective check on a per-project basis, but as a general rule any mesh that can be seen at varying distances should have proper LODs.
 
-### Modular Socketless Assets Should Snap To The Grid Cleanly <a name="static-meshes--modular-snapping"></a>
+### Modular Socketless Assets Should Snap to the Grid Cleanly <a name="static-meshes--modular-snapping"></a>
 
-This is a subjective check on a per-asset basis, however any modular socketless assets should snap together cleanly based on the project's grid settings.
+This is a subjective check on a per-asset basis, but any modular socketless assets should snap together cleanly based on the project's grid settings.
 
 It is up to the project whether to snap based on a power of 2 grid or on a base 10 grid. However, if you are authoring modular socketless assets for the marketplace, Epic requires that they snap cleanly when the grid is set to 10 units or bigger.
 
@@ -1017,7 +1017,7 @@ As mentioned in [Identifiers Forbidden Characters](#identifiers--forbidden-chara
 
 This section will focus on Level assets and their internals.
 
-### No Errors Or Warnings <a name="levels--no-errors-or-warnings"></a>
+### No Errors or Warnings <a name="levels--no-errors-or-warnings"></a>
 
 All levels should load with zero errors or warnings. If a level loads with any errors or warnings, they should be fixed immediately to prevent cascading issues.
 
@@ -1027,7 +1027,7 @@ Please note: Linter is even more strict on this than the editor is currently, an
 
 ### Lighting Should Be Built <a name="levels--lighting-built"></a>
 
-It is normal during development for levels to occasionally not have lighting built. When doing a test/internal/shipping build or any build that is to be distributed however, lighting should always be built.
+It is normal during development for levels to occasionally not have lighting built. However, lighting should always be built when doing a test/internal/shipping build or any build that is to be distributed.
 
 ### No Player Visible Z Fighting <a name="levels--no-visible-z-fighting"></a>
 
@@ -1047,7 +1047,7 @@ For example, `InteractionComponent_Overview`.
 
 #### Demo Level <a name="levels--marketplace-rules--demo"></a>
 
-If your project contains assets that should be demoed or come with some sort of tutorial, you must have a map within your project that contains the name "Demo". This level should also contain documentation within it in some form that illustrates how to use your project. See Epic's Content Examples project for good examples of how to do this.
+If your project contains assets that should be demoed or come with some sort of tutorial, you must have a map within your project that contains the name "Demo". This level should also contain documentation in some form that illustrates how to use your project. See Epic's Content Examples project for good examples of how to do this.
 
 If your project is a gameplay mechanic or other form of system as opposed to an art pack, this can be the same as your "Overview" map.
 
@@ -1061,7 +1061,7 @@ This section will focus on Texture assets and their internals.
 
 ### Dimensions Are Powers of 2 <a name="textures--dimensions"></a>
 
-All textures, except for UI textures, must have its dimensions in multiples of powers of 2. Textures do not have to be square.
+All textures, except for UI textures, must have dimensions in multiples of powers of 2. Textures do not have to be square.
 
 For example, `128x512`, `1024x1024`, `2048x1024`, `1024x2048`, `1x512`.
 
@@ -1071,9 +1071,9 @@ All textures should be of a size appropriate for their standard use case. Approp
 
 For example, if a project's texture density is 8 pixels per 1 unit, a texture that is meant to be applied to a 100x100 unit cube should be 1024x1024, as that is the closest power of 2 that matches the project's texture density.
 
-### Textures Should Be No Bigger than 8192 <a name="textures--maximum-size"></a>
+### Textures Should Be No Bigger Than 8192 <a name="textures--maximum-size"></a>
 
-No texture should have a dimension that exceeds 8192 in size, unless you have a very explicit reason to do so. Often, using a texture this big is simply just a waste of resources.
+No texture should have a dimension that exceeds 8192 in size unless you have a very explicit reason to do so. Often, using a texture this big is simply just a waste of resources.
 
 ### Textures Should Be Grouped Correctly <a name="textures--groups"></a>
 
