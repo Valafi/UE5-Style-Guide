@@ -29,7 +29,7 @@ Information regarding Mr. Allar's Linter can be found on his [ReadTheDocs](https
 4. [C++](#cpp)
     * [Follow the Epic C++ Coding Standard](#cpp--follow-coding-standard)
 5. [Blueprints](#blueprints)
-    * [Compiling](#blueprints--compiling)
+    * [Fix Warnings and Errors](#blueprints--fix-warnings-and-errors)
     * [Variables](#blueprints--variables)
     * [Functions, Events, and Event Dispatchers](#blueprints--functions)
     * [Blueprint Graphs](#blueprints--graphs)
@@ -585,7 +585,7 @@ This section will focus on Blueprint classes and their internals. When possible,
 
 Remember: Blueprinting badly bears blunders, beware! (Phrase by [KorkuVeren](http://github.com/KorkuVeren))
 
-### Compiling <a name="blueprints--compiling"></a>
+### Fix Warnings and Errors <a name="blueprints--fix-warnings-and-errors"></a>
 
 All blueprints should compile with zero warnings and zero errors. You should fix blueprint warnings and errors immediately as they can quickly cascade into very scary unexpected behavior.
 
