@@ -26,25 +26,27 @@ Information regarding Mr. Allar's Linter can be found on his [ReadTheDocs](https
     * [Very Large Asset Sets Get Their Own Folder Layout](#content-structure--large-sets)
     * [`MaterialLibrary`](#content-structure--material-library)
     * [No Empty Folders](#content-structure--no-empty-folders)
-4. [Blueprints](#blueprints)
+4. [C++](#cpp)
+    * [Follow the Epic C++ Coding Standard](#cpp--follow-coding-standard)
+5. [Blueprints](#blueprints)
     * [Compiling](#blueprints--compiling)
     * [Variables](#blueprints--variables)
     * [Functions, Events, and Event Dispatchers](#blueprints--functions)
     * [Blueprint Graphs](#blueprints--graphs)
-5. [Static Meshes](#static-meshes)
+6. [Static Meshes](#static-meshes)
     * [Static Mesh UVs](#static-meshes--uvs)
     * [LODs Should Be Set Up Correctly](#static-meshes--lods)
     * [Modular Socketless Assets Should Snap to the Grid Cleanly](#static-meshes--modular-snapping)
     * [All Meshes Must Have Collision](#static-meshes--collision)
     * [All Meshes Should Be Scaled Correctly](#static-meshes--scaled)
-6. [Niagara](#niagara)
+7. [Niagara](#niagara)
     * [No Spaces, Ever](#niagara--no-spaces)
-7. [Levels / Maps](#levels)
+8. [Levels / Maps](#levels)
     * [No Errors or Warnings](#levels--no-errors-or-warnings)
     * [Lighting Should Be Built](#levels--lighting-built)
     * [No Player Visible Z Fighting](#levels--no-visible-z-fighting)
     * [Marketplace Specific Rules](#levels--marketplace-rules)
-8. [Textures](#textures)
+9. [Textures](#textures)
     * [Dimensions Are Powers of 2](#textures--dimensions)
     * [Texture Density Should Be Uniform](#textures--uniform-density)
     * [Textures Should Be No Bigger Than 8192](#textures--maximum-size)
@@ -569,9 +571,17 @@ If you find that the content browser has an empty folder you can't delete, you s
 
 **[⬆ Back to Top](#table-of-contents)**
 
-## 3. Blueprints <a name="blueprints"></a>
+## 4. C++ <a name="cpp"></a>
 
-This section will focus on Blueprint classes and their internals. When possible, style rules conform to [Epic's Coding Standard](https://docs.unrealengine.com/latest/INT/Programming/Development/CodingStandard).
+### Follow the Epic C++ Coding Standard <a name="cpp--follow-coding-standard"></a>
+
+The [Epic C++ Coding Standard](https://dev.epicgames.com/documentation/en-us/unreal-engine/epic-cplusplus-coding-standard-for-unreal-engine) is Epic's style guide for C++ in Unreal Engine projects. Most of the general ideas within it can be applied to blueprint as well.
+
+Make sure you're well versed in Epic's C++ style if you plan to make engine contributions.
+
+## 5. Blueprints <a name="blueprints"></a>
+
+This section will focus on Blueprint classes and their internals. When possible, style rules conform to [Epic's Coding Standard](https://dev.epicgames.com/documentation/en-us/unreal-engine/epic-cplusplus-coding-standard-for-unreal-engine).
 
 Remember: Blueprinting badly bears blunders, beware! (Phrase by [KorkuVeren](http://github.com/KorkuVeren))
 
@@ -965,7 +975,7 @@ All nodes in all blueprint graphs must have a purpose. You should not leave dang
 
 **[⬆ Back to Top](#table-of-contents)**
 
-## 4. Static Meshes <a name="static-meshes"></a>
+## 6. Static Meshes <a name="static-meshes"></a>
 
 This section will focus on Static Mesh assets and their internals.
 
@@ -1001,7 +1011,7 @@ This is a subjective check on a per-project basis, however all assets should be 
 
 **[⬆ Back to Top](#table-of-contents)**
 
-## 5. Niagara <a name="niagara"></a>
+## 7. Niagara <a name="niagara"></a>
 
 This section will focus on Niagara assets and their internals.
 
@@ -1013,7 +1023,7 @@ As mentioned in [Identifiers Forbidden Characters](#identifiers--forbidden-chara
 
 **[⬆ Back to Top](#table-of-contents)**
 
-## 6. Levels / Maps <a name="levels"></a>
+## 8. Levels / Maps <a name="levels"></a>
 
 This section will focus on Level assets and their internals.
 
@@ -1055,7 +1065,7 @@ For example, `InteractionComponent_Overview_Demo`, `ExplosionKit_Demo`.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-## 7. Textures <a name="textures"></a>
+## 9. Textures <a name="textures"></a>
 
 This section will focus on Texture assets and their internals.
 
