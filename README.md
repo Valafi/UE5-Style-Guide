@@ -30,9 +30,25 @@ Information regarding Mr. Allar's Linter can be found on his [ReadTheDocs](https
     * [Follow the Epic C++ Coding Standard](#cpp--follow-coding-standard)
 5. [Blueprints](#blueprints)
     * [Fix Warnings and Errors](#blueprints--fix-warnings-and-errors)
-    * [Variables](#blueprints--variables)
-    * [Functions, Events, and Event Dispatchers](#blueprints--functions)
-    * [Blueprint Graphs](#blueprints--graphs)
+    * [Follow Variable Naming Best Practices](#blueprints--follow-variable-naming)
+    * [Mark Configurable Variables as Editable](#blueprints--mark-configurable-as-editable)
+    * [Give Editable Variables Tooltips](#blueprints--editable-variables-tooltips)
+    * [Use Slider And Value Ranges for Editable Variables When Appropriate](#blueprints--editable-ranges)
+    * [Use Variable Categories When Necessary](#blueprints--variable-categories)
+    * [Variable Access Level](#blueprints--access-level)
+    * [Advanced Display](#blueprints--advanced-display)
+    * [Transient Variables](#blueprints--transient-variables)
+    * [Config Variables](#blueprints--config-variables)
+    * [Function Naming](#blueprints--function-naming)
+    * [All Functions Must Have Return Nodes](#blueprints--functions-use-return)
+    * [No Function Should Have More Than 50 Nodes](#blueprints--function-node-limit)
+    * [All Public Functions Should Have A Description](#blueprints--public-functions-description)
+    * [All Custom Static Plugin `BlueprintCallable` Functions Must Be Categorized By Plugin Name](#blueprints--plugin-category)
+    * [No Spaghetti](#blueprints--no-spaghetti)
+    * [Align Nodes By Primary Wires](#blueprints--align-wires)
+    * [Graphs Should Be Reasonably Commented](#blueprints--graphs-commented)
+    * [Handle Casting Errors Where Appropriate](#blueprints--handle-cast-errors)
+    * [Remove Dangling / Loose / Dead Nodes](#blueprints--remove-dangling-nodes)
 6. [Static Meshes](#static-meshes)
     * [Static Mesh UVs](#static-meshes--uvs)
     * [LODs Should Be Set Up Correctly](#static-meshes--lods)
@@ -593,19 +609,17 @@ Do *not* submit broken blueprints to source control. If you must store them on s
 
 Broken blueprints can cause problems that manifest in other ways, such as broken references, unexpected behavior, cooking failures, and frequent unneeded recompilation. A broken blueprint has the power to break your entire game.
 
-### Variables <a name="blueprints--variables"></a>
+### Follow Variable Naming Best Practices <a name="blueprints--follow-variable-naming"></a>
 
-#### Naming <a name="blueprints--variables--naming"></a>
-
-##### Nouns <a name="blueprints--variables--naming--nouns"></a>
+#### Nouns <a name="blueprints--variables--naming--nouns"></a>
 
 All non-boolean variable names must be clear, unambiguous, and descriptive nouns.
 
-##### PascalCase <a name="blueprints--variables--naming--pascalcase"></a>
+#### PascalCase <a name="blueprints--variables--naming--pascalcase"></a>
 
 All non-boolean variables should be in the form of [PascalCase](#terminology--pascalcase).
 
-###### Examples <a name="blueprints--variables--naming--pascalcase--example"></a>
+##### Examples <a name="blueprints--variables--naming--pascalcase--example"></a>
 
 * `Score`
 * `Kills`
@@ -614,7 +628,7 @@ All non-boolean variables should be in the form of [PascalCase](#terminology--pa
 * `CrosshairColor`
 * `AbilityID`
 
-##### Boolean `b` Prefix <a name="blueprints--variables--naming--boolean-prefix"></a>
+#### Boolean `b` Prefix <a name="blueprints--variables--naming--boolean-prefix"></a>
 
 All booleans should be named in PascalCase but prefixed with a lowercase `b`.
 
@@ -622,9 +636,9 @@ Example: Use `bDead` and `bEvil`, **not** `Dead` and `Evil`.
 
 UE5 Blueprint editors know not to include the `b` in user-friendly displays of the variable.
 
-##### Boolean Names <a name="blueprints--variables--naming--booleans"></a>
+#### Boolean Names <a name="blueprints--variables--naming--booleans"></a>
 
-###### General And Independent State Information <a name="blueprints--variables--naming--booleans--general-state"></a>
+##### General And Independent State Information <a name="blueprints--variables--naming--booleans--general-state"></a>
 
 All booleans should be named as descriptive adjectives when possible if representing general information. Do not include words that phrase the variable as a question, such as `Is`. This is reserved for functions.
 
@@ -632,7 +646,7 @@ Example: Use `bDead` and `bHostile` **not** `bIsDead` and `bIsHostile`.
 
 Try to not use verbs such as `bRunning`. Verbs tend to lead to complex states.
 
-###### Complex States <a name="blueprints--variables--naming--booleans--complex-state"></a>
+##### Complex States <a name="blueprints--variables--naming--booleans--complex-state"></a>
 
 Do not to use booleans to represent complex and/or dependent states. This makes state adding and removing complex and no longer easily readable. Use an enumeration instead.
 
@@ -640,11 +654,11 @@ Example: When defining a weapon, do **not** use `bReloading` and `bEquipping` if
 
 Example: Do **not** use `bRunning` if you also need `bWalking` or `bSprinting`. This should be defined as an enumeration with clearly defined state names.
 
-##### Considered Context <a name="blueprints--variables--naming--context"></a>
+#### Considered Context <a name="blueprints--variables--naming--context"></a>
 
 All variable names must not be redundant with their context as all variable references in Blueprint will always have context.
 
-###### Examples <a name="blueprints--variables--naming--context--examples"></a>
+##### Examples <a name="blueprints--variables--naming--context--examples"></a>
 
 Consider a Blueprint called `BP_PlayerCharacter`.
 
@@ -668,7 +682,7 @@ Good examples:
 * `Skills`
 * `Skin`
 
-##### Do *Not* Include Atomic Type Names <a name="blueprints--variables--naming--atomic"></a>
+#### Do *Not* Include Atomic Type Names <a name="blueprints--variables--naming--atomic"></a>
 
 Atomic or primitive variables are variables that represent data in their simplest form, such as booleans, integers, floats, and enumerations.
 
@@ -688,7 +702,7 @@ The only exception to this rule is when a variable represents 'a number of' some
 
 Example: A fence generator needs to generate X number of posts. Store X in `NumPosts` or `PostsCount` instead of `Posts` as `Posts` may potentially read as an Array of a variable type named `Post`.
 
-##### Do Include Non-Atomic Type Names <a name="blueprints--variables--naming--complex"></a>
+#### Do Include Non-Atomic Type Names <a name="blueprints--variables--naming--complex"></a>
 
 Non-atomic or complex variables are variables that represent data as a collection of atomic variables. Structs, Classes, Interfaces, and primitives with hidden behavior such as `Text` and `Name` all qualify under this rule.
 
@@ -704,13 +718,13 @@ If a class does not own the value a complex variable represents, you should use 
 
 Example: If a `BP_Turret` has the ability to target a `BP_PlayerCharacter`, it should store its target as `TargetPlayer` as when in the context of `BP_Turret` it should be clear that it is a reference to another complex variable type that it does not own.
 
-##### Arrays <a name="blueprints--variables--naming--arrays"></a>
+#### Arrays <a name="blueprints--variables--naming--arrays"></a>
 
 Arrays follow the same naming rules as above, but should be named as a plural noun.
 
 Example: Use `Targets`, `Hats`, and `EnemyPlayers`, **not** `TargetList`, `HatArray`, `EnemyPlayerArray`.
 
-#### Editable Variables <a name="blueprints--variables--editable"></a>
+### Mark Configurable Variables as Editable <a name="blueprints--mark-configurable-as-editable"></a>
 
 All variables that are safe to change the value of in order to configure behavior of a blueprint should be marked as `Editable`.
 
@@ -718,11 +732,11 @@ Conversely, all variables that are not safe to change or should not be exposed t
 
 Do not arbitrarily mark variables as `Editable`.
 
-##### Tooltips <a name="blueprints--variables--editable--tooltips"></a>
+### Give Editable Variables Tooltips <a name="blueprints--editable-variables-tooltips"></a>
 
 All `Editable` variables, including those marked editable just so they can be marked as `Expose On Spawn`, should have a description in their `Tooltip` fields that explains how changing this value affects the behavior of the blueprint.
 
-##### Slider And Value Ranges <a name="blueprints--variables--editable--ranges"></a>
+### Use Slider And Value Ranges for Editable Variables When Appropriate <a name="blueprints--editable-ranges"></a>
 
 All `Editable` variables should make use of slider and value ranges if there is ever a value that a variable should *not* be set to.
 
@@ -732,7 +746,7 @@ If an editable variable is used in a Construction Script, it should have a reaso
 
 A Value Range only needs to be defined if the bounds of a value are known. While a Slider Range prevents accidental large number inputs, an undefined Value Range allows a user to specify a value outside the Slider Range that may be considered 'dangerous' but still valid.
 
-#### Categories <a name="blueprints--variables--categories"></a>
+### Use Variable Categories When Necessary <a name="blueprints--variable-categories"></a>
 
 If a class has only a small number of variables, categories are not required.
 
@@ -754,7 +768,7 @@ Example: A weapon class set of variables might be organized as:
     |-- State
     |-- Visuals
 
-#### Variable Access Level <a name="blueprints--variables--access"></a>
+### Variable Access Level <a name="blueprints--access-level"></a>
 
 In C++, variables have a concept of access level. Public means any code outside the class can access the variable. Protected means only the class and any child classes can access this variable internally. Private means only this class and no child classes can access this variable.
 
@@ -762,31 +776,27 @@ Blueprints do not have a defined concept of protected access currently.
 
 Treat `Editable` variables as public variables. Treat non-editable variables as protected variables.
 
-##### Private Variables <a name="blueprints--variables--access--private"></a>
+#### Private Variables <a name="blueprints--variables--access--private"></a>
 
 Unless it is known that a variable should only be accessed within the class it is defined and never a child class, do not mark variables as private. Until variables are able to be marked `protected`, reserve private for when you absolutely know you want to restrict child class usage.
 
-#### Advanced Display <a name="blueprints--variables--advanced-display"></a>
+### Advanced Display <a name="blueprints--advanced-display"></a>
 
 If a variable should be editable but often untouched, mark it as `Advanced Display`. This makes the variable hidden unless the advanced display arrow is clicked.
 
 To find the `Advanced Display` option, it is listed as an advanced displayed variable in the variable details list.
 
-#### Transient Variables <a name="blueprints--variables--transient"></a>
+### Transient Variables <a name="blueprints--transient-variables"></a>
 
 Transient variables are variables that do not need to have their value saved and loaded and have an initial value of zero or null. This is useful for references to other objects and actors who's value isn't known until run-time. This prevents the editor from ever saving a reference to it, and speeds up saving and loading of the blueprint class.
 
 Because of this, all transient variables should always be initialized as zero or null. To do otherwise would result in hard to debug errors.
 
-#### Config Variables <a name="blueprints--variables--config"></a>
+### Config Variables <a name="blueprints--config-variables"></a>
 
 Do not use the `Config Variable` flag. This makes it harder for designers to control blueprint behavior. Config variables should only be used in C++ for rarely changed variables. Think of them as `Advanced Advanced Display` variables.
 
-### Functions, Events, and Event Dispatchers <a name="blueprints--functions"></a>
-
-This section describes how you should author functions, events, and event dispatchers. Everything that applies to functions also applies to events, unless otherwise noted.
-
-#### Function Naming <a name="blueprints--functions--naming"></a>
+### Function Naming <a name="blueprints--function-naming"></a>
 
 The naming of functions, events, and event dispatchers is critically important. Based on the name alone, certain assumptions can be made about functions. For example:
 
@@ -898,7 +908,7 @@ Bad examples:
 * `AllNotifyDeath` - Use `Multicast`, never `All`.
 * `ClientWeapon` - No verb, ambiguous.
 
-#### All Functions Must Have Return Nodes <a name="blueprints--functions--use-return"></a>
+### All Functions Must Have Return Nodes <a name="blueprints--functions-use-return"></a>
 
 All functions must have return nodes, no exceptions.
 
@@ -908,7 +918,7 @@ The Blueprint compiler is able to follow the flow of execution and will warn you
 
 In situations like where a programmer may add a pin to a Sequence node or add logic after a for loop completes but the loop iteration might return early, this can often result in an accidental error in code flow. The warnings the Blueprint compiler will alert everyone of these issues immediately.
 
-#### No Function Should Have More Than 50 Nodes <a name="blueprints--functions--node-limit"></a>
+### No Function Should Have More Than 50 Nodes <a name="blueprints--function-node-limit"></a>
 
 Simply, no function should have more than 50 nodes. Any function this big should be broken down into smaller functions for readability and ease of maintenance.
 
@@ -922,27 +932,25 @@ The following nodes are not counted as they are deemed to not increase function 
 * Function Entry
 * Self
 
-#### All Public Functions Should Have A Description <a name="blueprints--functions--public-description"></a>
+### All Public Functions Should Have A Description <a name="blueprints--public-functions-description"></a>
 
 This rule applies more to public facing or marketplace blueprints, so that others can more easily navigate and consume your blueprint API.
 
 Simply, any function that has an access specificer of Public should have its description filled out.
 
-#### All Custom Static Plugin `BlueprintCallable` Functions Must Be Categorized By Plugin Name <a name="blueprints--functions--plugin-category"></a>
+### All Custom Static Plugin `BlueprintCallable` Functions Must Be Categorized By Plugin Name <a name="blueprints--plugin-category"></a>
 
 If your project includes a plugin that defines `static` `BlueprintCallable` functions, they should have their category set to the plugin's name or a subset category of the plugin's name.
 
 For example, `Zed Camera Interface` or `Zed Camera Interface | Image Capturing`.
 
-### Blueprint Graphs <a name="blueprints--graphs"></a>
-
-This section covers things that apply to all Blueprint graphs.
-
-#### No Spaghetti <a name="blueprints--graphs--no-spaghetti"></a>
+### No Spaghetti <a name="blueprints--no-spaghetti"></a>
 
 Wires should have clear beginnings and ends. You should never have to mentally untangle wires to make sense of a graph. Many of the following sections are dedicated to reducing spaghetti.
 
-#### Align Wires Not Nodes <a name="blueprints--graphs--align-wires"></a>
+### Align Nodes By Primary Wires <a name="blueprints--align-wires"></a>
+
+If you ever have to decide between straightening a linear white exec line or straightening data lines of some kind, always straighten the white exec line.
 
 Always align wires, not nodes. You can't always control the size and pin location on a node, but you can always control the location of a node and thus control the wires. Straight wires provide clear linear flow. Wiggly wires wear wits wickedly. You can straighten wires by using the Straighten Connections command with BP nodes selected. Hotkey: Q
 
@@ -955,21 +963,17 @@ Bad Example: The tops of the nodes are aligned creating a wiggly white exec line
 Acceptable Example: Certain nodes might not cooperate no matter how you use the alignment tools. In this situation, try to minimize the wiggle by bringing the node in closer.
 ![Acceptable](https://github.com/Allar/ue5-style-guide/blob/main/images/bp-graphs-align-wires-acceptable.png?raw=true "Acceptable")
 
-#### White Exec Lines Are Top Priority <a name="blueprints--graphs--align-exec"></a>
-
-If you ever have to decide between straightening a linear white exec line or straightening data lines of some kind, always straighten the white exec line.
-
-#### Graphs Should Be Reasonably Commented <a name="blueprints--graphs--comments"></a>
+### Graphs Should Be Reasonably Commented <a name="blueprints--graphs-commented"></a>
 
 Blocks of nodes should be wrapped in comments that describe their higher-level behavior. While every function should be well named so that each individual node is easily readable and understandable, groups of nodes contributing to a purpose should have their purpose described in a comment block. If a function does not have many blocks of nodes and its clear that the nodes are serving a direct purpose in the function's goal, then they do not need to be commented as the function name and  description should suffice.
 
-#### Graphs Should Handle Casting Errors Where Appropriate <a name="blueprints--graphs--handle-cast-errors"></a>
+### Handle Casting Errors Where Appropriate <a name="blueprints--handle-cast-errors"></a>
 
 If a function or event assumes that a cast always succeeds, it should appropriately report a failure in logic if the cast fails. This lets others know why something that is 'supposed to work' doesn't. A function should also attempt a graceful recovery after a failed cast if it's known that the reference being casted could ever fail to be casted.
 
 This does not mean every cast node should have its failure handled. In many cases, especially events regarding things like collisions, it is expected that execution flow terminates on a failed cast quietly.
 
-#### Graphs Should Not Have Any Dangling / Loose / Dead Nodes <a name="blueprints--graphs--no-dangling-nodes"></a>
+### Remove Dangling / Loose / Dead Nodes <a name="blueprints--remove-dangling-nodes"></a>
 
 All nodes in all blueprint graphs must have a purpose. You should not leave dangling blueprint nodes around that have no purpose or are not executed.
 
